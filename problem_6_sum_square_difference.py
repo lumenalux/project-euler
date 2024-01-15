@@ -40,6 +40,7 @@ def solution(n):
 def brute_force_solution(n):
     return sum(range(1, n+1))**2 - sum(i**2 for i in range(1, n+1))
 
+
 # test
 if __name__ == '__main__':
     print(brute_force_solution(10)) # 2640
