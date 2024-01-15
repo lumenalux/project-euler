@@ -47,8 +47,3 @@ def solution(n):
 if __name__ == '__main__':
     N = 600851475143
     print(solution(N))
-
-    print(factor_number(104))
-    print(factor_number(13195))
-    print(factor_number(600851475143))
-    # print(sieve_of_eratosthenes(202))
