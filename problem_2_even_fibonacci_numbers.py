@@ -82,10 +82,9 @@ def linear_solution(N):
 
 # test
 if __name__ == '__main__':
-    N = 4 * 10 ** 6
-    print(solution(N), linear_solution(N))
+    N = 4_000_000
+    print(solution(N), linear_solution(N)) # 3524577 3524577
 
     N = 4 * 10 ** 1000
-    # print(solution(N))
-    print(solution(N))
-    print(linear_solution(N))
+    print(solution(N)) # 31068776790948109938947426180404819488893050239575...
+    print(linear_solution(N)) # 3106877679094810993894742618040481948889305...
