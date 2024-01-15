@@ -46,4 +46,4 @@ def solution(n):
 # test
 if __name__ == '__main__':
     N = 600851475143
-    print(solution(N))
+    print(solution(N)) # 6857
