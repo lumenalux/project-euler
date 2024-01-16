@@ -10,17 +10,13 @@ link: https://projecteuler.net/problem=10
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 def sieve_of_eratosthenes(n):
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
-    if n <= 2:
-        return []
+    sieve = [True] * ((n + 1) // 2)
+    for i in range(3, int(n**0.5) + 1, 2):
+        if sieve[i // 2]:
+            start, end, step = i*i // 2, n // 2, i
+            sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    sieve = [True] * n
-    sieve[0] = sieve[1] = False  # 0 and 1 are not primes
-
-    for i in range(2, int(n**0.5) + 1):
-        if sieve[i]:
-            sieve[i*i:n:i] = [False] * len(sieve[i*i:n:i])  # Set multiples of i to False
-
-    return [i for i, prime in enumerate(sieve) if prime]
+    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
 
 
 # O(n*log(log(n))) - Sieve of Eratosthenes
