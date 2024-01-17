@@ -234,6 +234,8 @@ def solution():
 
     return int(str(float_sum)[:10])
 
+
+# test
 if __name__ == '__main__':
     print(cheating_solution()) # 5537376230
     print(solution()) # 5537376230
