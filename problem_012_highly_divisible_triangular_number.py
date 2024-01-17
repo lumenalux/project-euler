@@ -97,8 +97,25 @@ def solution(N):
         if get_number_of_divisors(a) * get_number_of_divisors(b) > N:
             return a * b
 
+
+# Works faster
+def dp_solution(N):
+    # Heruistic formula (N // 2)^2 // 2 for upper bound of n
+    number_of_divisors = [1] * (max((N // 2)**2 // 2, 100))
+    for n in count(2):
+        for i in range(n, len(number_of_divisors), n):
+            number_of_divisors[i] += 1
+        a, b = (n // 2, n - 1) if n % 2 == 0 else (n, (n - 1) // 2)
+        if number_of_divisors[a] * number_of_divisors[b] > N:
+            return a * b
+
+
 # test
 if __name__ == '__main__':
     print(solution(5)) # 28
     print(solution(500)) # 76576500
     print(solution(1000)) # 842161320
+
+    print(dp_solution(5)) # 28
+    print(dp_solution(500)) # 76576500
+    print(dp_solution(1000)) # 842161320
