@@ -15,6 +15,8 @@ finishing at 1) contains 10 terms. Although it has not been proved yet
 Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
+
+link: https://projecteuler.net/problem=14
 """
 from functools import lru_cache
 
