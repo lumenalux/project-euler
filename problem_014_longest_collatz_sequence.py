@@ -34,7 +34,6 @@ def solution(N):
 def recursive_solution(N):
   sequence_length = {1: 1}
 
-  # lru_cache(maxsize=None)
   def find_sequence_length(n):
     if n in sequence_length:
       return sequence_length[n]
