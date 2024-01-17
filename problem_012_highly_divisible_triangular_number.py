@@ -83,6 +83,8 @@ def get_number_of_divisors(n):
         while n % prime == 0:
             factors_count[i] += 1
             n //= prime
+        if n < 2:
+            break
 
     # Multiply by 2 if n > 2, because n is prime in this case
     # and there is additional prime factor which is n itself.
