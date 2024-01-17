@@ -30,6 +30,11 @@ Find the maximum total from top to bottom in below:
 link: https://projecteuler.net/problem=18
 """
 
+SMALL_TRIANGLE = """3
+7 4
+2 4 6
+8 5 9 3"""
+
 TRIANGLE = """75
 95 64
 17 47 82
@@ -60,4 +65,5 @@ def solution(triangle):
 
 # test
 if __name__ == '__main__':
+    print(solution(SMALL_TRIANGLE)) # 23
     print(solution(TRIANGLE)) # 1074
