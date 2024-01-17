@@ -48,11 +48,14 @@ the number of divisors of n and n + 1:
       d(N) = d(n) * d((n + 1) / 2), where n is odd
 
 So we can iterate over n and calculate the number of divisors of
-n, (n + 1) / 2 or n + 1 and n / 2 until we find the first triangular
-number with over 500 divisors. Then we can calculate the product
-of n and n + 1 or n / 2 and (n + 1) / 2, depending on whether n
-is even or odd to get the result.
+
+  n, (n + 1) / 2, where n is even
+  n + 1, n / 2, where n is odd
+
+until we find the first triangular number with over 500 divisors.
+Then we can calculate the product of such pair to get the result.
 """
+
 import math
 
 from itertools import count, chain
