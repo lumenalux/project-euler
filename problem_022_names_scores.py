@@ -10,7 +10,6 @@ obtain a score of 938 x 53 = 49714.
 
 What is the total of all the name scores in the file?
 
-Answer: 871198282
 link: https://projecteuler.net/problem=22
 """
 from heapq import heappush, heappop
