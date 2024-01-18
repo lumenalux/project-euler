@@ -42,8 +42,8 @@ Now since σ(n) is multiplicative, we have:
 link: https://en.wikipedia.org/wiki/Divisor_function
 
 We can use this formula to calculate the sum of divisors of any integer.
-So we will calculate the sum of divisors of all numbers under n except n
-itself, then we will find out all the amicable numbers.
+So we will calculate the sum of divisors of all numbers under N, then we
+will find out all the amicable numbers.
 """
 import math
 
@@ -87,8 +87,7 @@ def solution(N):
     amicable_numbers = [n for n, d_sum in divisors_sums.items()
                         if n != d_sum
                            and d_sum in divisors_sums
-                           and d_sum == divisors_sums[n]
-                           and n == divisors_sums[d_sum]]
+                           and n == divisors_sums[divisors_sums[n]]]
 
     return sum(amicable_numbers)
 
