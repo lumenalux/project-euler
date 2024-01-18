@@ -14,35 +14,46 @@ def cheating_solution(power, base=2):
 class LargeNumber:
     DIGITS_IN_BUCKET = 6
 
-    def __init__(self, number, number_of_buckets=500):
+    def __init__(self, number):
         self.separator = 10 ** self.DIGITS_IN_BUCKET
         self.number = []
-        for _ in range(number_of_buckets):
+        while number > 0:
             self.number.append(float(number % self.separator))
             number //= self.separator
 
     def __add__(self, other):
         carry = 0.0
-        result = LargeNumber(0, number_of_buckets=len(self.number))
-        for i, bucket in enumerate(other.number):
-            addition = self.number[i] + bucket + carry
+        result = LargeNumber(0)
+        result.number = [0.0] * max(len(self.number), len(other.number))
+        for i, (bucket, other_bucket) in enumerate(zip(self.number, other.number)):
+            addition = other_bucket + bucket + carry
             result.number[i] = float(addition % self.separator)
             carry = float(addition // self.separator)
+        if carry:
+            result.number.append(carry)
+
         return result
 
     def __mul__(self, other):
-        result = LargeNumber(0, number_of_buckets=len(self.number))
+        result = LargeNumber(0)
         for i, bucket in enumerate(self.number):
             carry = 0.0
             for j, other_bucket in enumerate(other.number):
                 addition = bucket * other_bucket + carry
-                index = min(i + j, len(self.number) - 1)
-                result.number[index] += float(addition % self.separator)
+                while i + j >= len(result.number):
+                    result.number.append(0.0)
+
+                result.number[i + j] += float(addition % self.separator)
                 carry = float(addition // self.separator)
+
+            while carry:
+                result.number.append(float(carry % self.separator))
+                carry = float(carry // self.separator)
+
         return result
 
     def __pow__(self, number):
-        result = LargeNumber(1, number_of_buckets=len(self.number))
+        result = LargeNumber(1)
         if number == 0:
             return result
         if number == 1:
@@ -63,8 +74,7 @@ class LargeNumber:
 
 
 def solution(power, base=2):
-    number_of_buckets = int(1 + power * math.log(10, base) // 6)
-    return sum(map(int, str(LargeNumber(base, number_of_buckets) ** power)))
+    return sum(map(int, str(LargeNumber(base) ** power)))
 
 
 # test
@@ -72,7 +82,9 @@ if __name__ == '__main__':
     print(cheating_solution(15)) # 26
     print(cheating_solution(1000)) # 1366
     print(cheating_solution(5000)) # 6790
+    # print(cheating_solution(100_000)) # Exceeds the limit
 
     print(solution(15)) # 26
     print(solution(1000)) # 1366
     print(solution(5000)) # 6790
+    print(solution(100_000)) # 136357
