@@ -53,4 +53,4 @@ def simple_solution(N, k=10):
 
 # test
 if __name__ == '__main__':
-  print(simple_solution(1_000_000))
+  print(simple_solution(1_000_000)) # 2783915460
