@@ -77,7 +77,7 @@ def factor_number(n, primes):
 
 
 def sum_of_divisors(n, primes):
-    return math.prod((p**(a + 1) - 1) // (p - 1) 
+    return math.prod((p**(a + 1) - 1) // (p - 1)
                      for p, a in Counter(factor_number(n, primes)).items())
 
 
