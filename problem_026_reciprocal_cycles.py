@@ -46,18 +46,18 @@ def get_length_of_recurring_cycle(d):
   remainder_index = {}
   remainder, index = 1, 0
   while remainder and remainder not in remainder_index:
-    remainder_index[remainder] = index
-    remainder = (remainder * 10) % d
-    index += 1
+      remainder_index[remainder] = index
+      remainder = (remainder * 10) % d
+      index += 1
   return index - remainder_index.get(remainder, 0)
 
 
 def solution(N):
-  primes = sieve_of_eratosthenes(N)
-  return max(primes, key=get_length_of_recurring_cycle)
+    primes = sieve_of_eratosthenes(N)
+    return max(primes, key=get_length_of_recurring_cycle)
 
 
 if __name__ == "__main__":
-   print(solution(10)) # 7
-   print(solution(1000)) # 983
-   print(solution(10_000)) # 9967
+    print(solution(10)) # 7
+    print(solution(1000)) # 983
+    print(solution(10_000)) # 9967
