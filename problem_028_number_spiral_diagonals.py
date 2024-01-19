@@ -48,14 +48,15 @@ There are formulas for sum of squares and arithmetic series:
     where k = (N - 1) / 2 is the number of layers of the spiral
 
     ∑(4*n**2 - 6*n + 6) = 4*∑(n**2) - 6*∑(n) + 6*∑(6)
-                        = (4*N**3 + 3*N**2 + 8*N - 9) / 6
+                        = (4N**3 + 3N**2 + 8N - 9) / 6
+                        = (N * (N * (4N + 3) + 8) - 9) / 6
 
 Applying all this, we get a formula for calculating the sum of numbers on
 diagonals in an N by N spiral formed in the same way.
 """
 
 def solution_(N):
-    return  (4*N**3 + 3*N**2 + 8*N - 9) // 6
+    return  (N * (N * (4*N + 3) + 8) - 9) // 6
 
 
 if __name__ == '__main__':
