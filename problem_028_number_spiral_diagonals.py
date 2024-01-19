@@ -50,7 +50,7 @@ There are formulas for sum of squares and arithmetic series:
     ∑(4*n**2 - 6*n + 6) = 4*∑(n**2) - 6*∑(n) + 6*∑(6)
                         = (4*N**3 + 3*N**2 + 8*N - 9) / 6
 
-Applying all this, we will get a formula for calculating the sum of numbers on
+Applying all this, we get a formula for calculating the sum of numbers on
 diagonals in an N by N spiral formed in the same way.
 """
 
