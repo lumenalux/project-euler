@@ -12,7 +12,6 @@ What is the total of all the name scores in the file?
 
 link: https://projecteuler.net/problem=22
 """
-from heapq import heappush, heappop
 from itertools import chain
 
 
