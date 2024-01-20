@@ -20,11 +20,22 @@ If you are not familiar with dynamic programming, you can read about it in
 chapter 9 of the book "Grokking Algorithms" by Aditya Bhargava.
 link: https://livebook.manning.com/book/grokking-algorithms/chapter-9/1
 """
+from functools import lru_cache
+
+
+COINS = (1, 2, 5, 10, 20, 50, 100, 200)
+
+
+@lru_cache(maxsize=max(COINS))
+def recursive_solution(N, start=0):
+    return sum(recursive_solution(N - COINS[i], i)
+               for i in range(start, len(COINS)) if COINS[i] <= N) if N else 1
+
+
 def solution(N):
-    coins = [1, 2, 5, 10, 20, 50, 100, 200]
     dp = [0] * (N + 1)
     dp[0] = 1
-    for coin in coins:
+    for coin in COINS:
         for i in range(coin, N + 1):
             dp[i] += dp[i - coin]
     return dp[N]
@@ -32,3 +43,4 @@ def solution(N):
 
 if __name__ == '__main__':
     print(solution(200)) # 73682
+    print(recursive_solution(200)) # 73682
