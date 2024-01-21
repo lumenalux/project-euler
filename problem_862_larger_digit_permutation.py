@@ -34,7 +34,7 @@ where k1, k2, ..., kn are the number of each digit in the multiset.
 
 The only problem with zeros is that they can't be the first digit of a number,
 so we need to subtract the number of sequences with zeros as the first digit
-from the total number of sequences. Summing up all the T sequences for all
+from the total number of sequences. Summing up all the sum of T for all
 possible digit sequences we get the answer.
 """
 import math
