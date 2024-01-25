@@ -22,8 +22,6 @@ is prime. If it is, we will stop the algorithm and return the result. If not,
 we will reduce the window by one and check again. To reduce the window, we
 can subtract the first element and add the next one.
 """
-from statistics import mean
-
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 def sieve_of_eratosthenes(n):
