@@ -82,7 +82,7 @@ def is_prime(n, primes, prime_limit):
 
 
 def solution(N):
-    prime_limit = 10_000
+    prime_limit = 10 ** max(3, N - 1)
     primes = sieve_of_eratosthenes(prime_limit)
 
     matches = {}
