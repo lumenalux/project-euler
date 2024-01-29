@@ -79,4 +79,7 @@ def solution():
                      for seq in sequences
                      if str(seq[0])[:2] == str(seq[-1])[2:]), [0]))
 
-print(solution())
+
+# test
+if __name__ == '__main__':
+    print(solution()) # 28684
