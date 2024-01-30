@@ -14,19 +14,24 @@ Solution:
 
 For this problem we can use the graph theory to find the solution. First, we
 will create the graph where each prime is a vertex and there is an edge between
-two vertices if the concatenation of the two primes is also a prime. Then we
-want to use the Bron-Kerbosch algorithm to find all maximal cliques in the
-graph. The maximal cliques are the sets of vertices that are all connected to
-each other and there are no other vertices that can be added to the set without
-breaking the rule. The maximal cliques are the sets of primes that can be
-concatenated to produce other primes. In the end we need just find the sum of
-clique of 5. But the Bron-Kerbosch algorithm is working with undirected graphs,
-so we need to create an undirected graph from our directed graph. In my PC the
-algorithm is working for about 8 seconds
+two vertices if the concatenation of the two primes is also a prime. There are
+too many values to check, so we will use parallelization for this process. We
+will use the Sieve of Eratosthenes algorithm to find the primes. Then we will
+use the multiprocessing module to speed-up the process of checking all the
+pairs of primes.
+
+Then we want to use the Bron-Kerbosch algorithm to find all maximal cliques in
+the graph. The maximal cliques are the sets of vertices that are all connected
+to each other and there are no other vertices that can be added to the set
+without breaking the rule. The maximal cliques are the sets of primes that can
+be concatenated to produce other primes. In the end we need just find the sum
+of clique of 5. But the Bron-Kerbosch algorithm is working with undirected graphs,
+so we need to create an undirected graph from our directed graph.
 """
 import math
 
-from itertools import product
+from multiprocessing import Pool
+from itertools import combinations, repeat
 
 
 # For more details about the algorithm:
@@ -72,25 +77,50 @@ def bron_kerbosch(R, P, X, graph, cliques):
 def is_prime(n, primes, prime_limit):
     if n < prime_limit:
         return n in primes
-    limit = math.isqrt(n) + 1
+
+    limit = math.isqrt(n)
     for p in primes:
         if p > limit:
-            break
+            return True
         if n % p == 0:
             return False
     return True
+
+
+def check_match(pair, primes, prime_limit):
+    a, b = pair
+    if not is_prime(int(str(a) + str(b)), primes, prime_limit):
+        return None
+
+    if not is_prime(int(str(b) + str(a)), primes, prime_limit):
+        return None
+
+    return pair
+
+
+def generate_matches(primes, prime_limit):
+    pool = Pool()
+    results = pool.starmap(
+        check_match,
+        zip(combinations(primes, 2), repeat(primes), repeat(prime_limit))
+    )
+
+    matches = {}
+    for a, b in filter(None, results):
+        matches.setdefault(b, set()).add(a)
+        matches.setdefault(a, set()).add(b)
+
+    pool.close()
+    pool.join()
+
+    return matches
 
 
 def solution(N):
     prime_limit = 10 ** max(3, N - 1)
     primes = sieve_of_eratosthenes(prime_limit)
 
-    matches = {}
-    for a, b in product(primes, repeat=2):
-        if a == b:
-            continue
-        if is_prime(int(str(a) + str(b)), primes, prime_limit):
-            matches.setdefault(a, set()).add(b)
+    matches = generate_matches(primes, prime_limit)
 
     graph = {}
     for a, a_set in matches.items():
