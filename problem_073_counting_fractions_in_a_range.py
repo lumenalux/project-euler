@@ -71,5 +71,5 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(8)) # 7295372
+    print(solution(8))      # 3
     print(solution(12_000)) # 7295372
