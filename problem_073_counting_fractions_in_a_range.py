@@ -45,23 +45,6 @@ desired number of reduced proper fractions within the specified range.
 def solution(N):
     number_of_new_fractions = [0] * (N + 1)
     for d in range(1, N + 1):
-        # Count fractions between 1/3 and 1/2 for the denominator d
-        number_of_new_fractions[d] += d // 2 - d // 3 - 1
-        # Adjust counts for multiples of d to ensure reduced proper fractions are counted
-        for k in range(2 * d, N + 1, d):
-            number_of_new_fractions[k] -= number_of_new_fractions[d]
-
-    # Sum the counts to get the total number of fractions
-    return sum(number_of_new_fractions)
-
-import math
-
-from itertools import pairwise, chain
-
-
-def solution(N):
-    number_of_new_fractions = [0] * (N + 1)
-    for d in range(1, N + 1):
         number_of_new_fractions[d] += d // 2 - d // 3 - 1
         for k in range(2 * d, N + 1, d):
             number_of_new_fractions[k] -= number_of_new_fractions[d]
