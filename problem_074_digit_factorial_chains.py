@@ -91,9 +91,9 @@ def generate_chains(factorials):
         seen.update(chain)
 
 
-def solution():
+def solution(N):
     factorials = dict()
-    for r in range(1, 7):
+    for r in range(1, len(str(N))):
         for comb in combinations_with_replacement(range(10), r):
             factorials.setdefault(factorial_sum(comb), []).append(comb)
 
@@ -104,4 +104,5 @@ def solution():
 
 
 if __name__ == '__main__':
-    print(solution()) # 402
+    print(solution(  1_000_000)) # 402
+    print(solution(100_000_000)) # 62058
