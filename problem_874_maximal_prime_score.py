@@ -121,12 +121,12 @@ def solution(k):
     if k % 2 == 0:
         n, c, m = n - 1, 2, k - 2
 
-    b = primes[k-1]
+    a = primes[k-1]
     max_sum = 0
-    limit = b * n + c
-    for a in primes[k-1::-1]:
+    limit = a * n + c
+    for b in primes[k-1::-1]:
         for i in range(1, n + 1):
-            new_sum = b * (n - i) + a * i
+            new_sum = a * (n - i) + b * i
             if new_sum % k == m:
                 max_sum = max(max_sum, new_sum + c)
                 break
