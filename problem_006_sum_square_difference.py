@@ -43,7 +43,7 @@ def brute_force_solution(n):
 
 # test
 if __name__ == '__main__':
-    print(brute_force_solution(10)) # 2640
-    print(solution(10)) # 2640
-    print(brute_force_solution(100)) # 25164150
-    print(solution(100)) # 25164150
+    print(brute_force_solution(10))   # 2640
+    print(solution(10))               # 2640
+    print(brute_force_solution(100))  # 25164150
+    print(solution(100))              # 25164150
