@@ -41,7 +41,7 @@ def solution(matrix):
         # Relax neighbors
         for delta_row, delta_column in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             next_row, next_column = row + delta_row, column + delta_column
-            if not(0 <= next_row < rows and 0 <= next_column < columns):
+            if not (0 <= next_row < rows and 0 <= next_column < columns):
                 continue
 
             new_distance = current_distance + matrix[next_row][next_column]
@@ -50,7 +50,6 @@ def solution(matrix):
                 heapq.heappush(heap, (new_distance, next_row, next_column))
 
     return distance[-1][-1]
-
 
 
 def file_to_matrix(file_path):
