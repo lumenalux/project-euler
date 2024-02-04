@@ -14,10 +14,8 @@ def count_rectangles(n, k):
 
 
 def solution(N):
-    min_n, max_n = 1, 2
-    while count_rectangles(max_n, max_n) < N:
-        min_n, max_n = max_n, max_n * 4
-
+    min_n = int((2*N) ** 0.25)
+    max_n = 4 * min_n
     return min(
         ((n*k, count_rectangles(n, k))
          for n in range(min_n, max_n + 1)
