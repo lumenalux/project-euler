@@ -99,6 +99,7 @@ maximal prime score is 4992771000, which already exceeds the limit, so the
 """
 from math import log, ceil
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 def sieve_of_eratosthenes(n):
@@ -137,5 +138,5 @@ def solution(k):
 
 # Test
 if __name__ == '__main__':
-    print(solution(2))    # 14
-    print(solution(7000)) # 4992764000
+    print(solution(2))     # 14
+    print(solution(7000))  # 4992764000
