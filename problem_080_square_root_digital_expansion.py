@@ -48,8 +48,8 @@ def solution(N, K):
 # Test
 if __name__ == '__main__':
     print(solution(2, 100))   # 475
-    print(solution(100, 100)) # 40886
+    print(solution(100, 100))  # 40886
 
     # Using decimal module
     print(decimal_module_solution(2, 100))   # 475
-    print(decimal_module_solution(100, 100)) # 40886
+    print(decimal_module_solution(100, 100))  # 40886
