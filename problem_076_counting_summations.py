@@ -20,6 +20,7 @@ that we need to find the number of ways to write the number as a sum of at
 least two positive integers. So we need to subtract 1 from the result.
 """
 
+
 def solution(N):
     dp = [0] * (N + 1)
     dp[0] = 1
@@ -30,5 +31,5 @@ def solution(N):
 
 
 if __name__ == '__main__':
-    print(solution(100))  # 190569291
-    print(solution(1000)) # 24061467864032622473692149727990
+    print(solution(100))   # 190569291
+    print(solution(1000))  # 24061467864032622473692149727990
