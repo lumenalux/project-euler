@@ -46,14 +46,14 @@ The solution involves the following steps:
     longer true.
 
 """
-import math
-
 from itertools import dropwhile
 
 LIMIT = 1000
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+
 def sieve_of_eratosthenes(n):
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
