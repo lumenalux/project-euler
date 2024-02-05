@@ -52,4 +52,4 @@ def solution(mod=1_000_000):
 
 
 if __name__ == '__main__':
-    print(solution()) # 55374
+    print(solution())  # 55374
