@@ -39,7 +39,7 @@ possible digit sequences we get the answer.
 """
 import math
 
-from itertools import combinations_with_replacement, islice
+from itertools import combinations_with_replacement
 from collections import Counter
 
 
@@ -70,5 +70,5 @@ def solution(N):
 
 
 if __name__ == '__main__':
-    print(solution(3)) # 1701
-    print(solution(12)) # 6111397420935766740
+    print(solution(3))   # 1701
+    print(solution(12))  # 6111397420935766740
