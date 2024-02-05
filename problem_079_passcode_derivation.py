@@ -23,6 +23,8 @@ If we count how many times each digit is smaller than the distinct digits
 that come after it, we can sort the digits by that count and get the shortest
 possible secret passcode.
 """
+
+
 def solution(file_path):
     with open(file_path) as f:
         data = f.read().splitlines()
@@ -39,4 +41,4 @@ def solution(file_path):
 
 # test
 if __name__ == '__main__':
-    print(solution('resources/0079_keylog.txt')) # 73162890
+    print(solution('resources/0079_keylog.txt'))  # 73162890
