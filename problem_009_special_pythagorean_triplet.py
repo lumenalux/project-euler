@@ -35,6 +35,8 @@ Also, since n*(n+m) = 500, n cannot be greater than sqrt(500)
 """
 
 # O(√n)
+
+
 def solution():
     for n in range(1, int(500**0.5) + 1):
         m = 500/n - n
@@ -46,4 +48,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # (375, 200, 425)
+    print(solution())  # (375, 200, 425)
