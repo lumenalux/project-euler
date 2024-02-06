@@ -18,6 +18,7 @@ link: https://projecteuler.net/problem=82
 """
 import math
 
+
 def solution(matrix):
     rows, columns = len(matrix), len(matrix[0])
     dp = [[math.inf] * columns for _ in range(rows)]
@@ -38,7 +39,7 @@ def solution(matrix):
     return min(dp[i][-1] for i in range(rows))
 
 
-def file_to_matrix(file_path):
+def load_matrix(file_path):
     with open(file_path) as f:
         return [list(map(int, line.split(','))) for line in f]
 
@@ -51,4 +52,4 @@ if __name__ == '__main__':
                     [537, 699, 497, 121, 956],
                     [805, 732, 524,  37, 331]]))  # 994
 
-    print(solution(file_to_matrix('resources/0082_matrix.txt')))  # 260324
+    print(solution(load_matrix('resources/0082_matrix.txt')))  # 260324
