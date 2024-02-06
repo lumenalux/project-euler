@@ -10,7 +10,7 @@ from itertools import takewhile, product
 def sieve_of_eratosthenes(n):
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
-    for i in range(3, int(n**0.5) + 1, 2):
+    for i in range(3, math.isqrt(n) + 1, 2):
         if sieve[i // 2]:
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
