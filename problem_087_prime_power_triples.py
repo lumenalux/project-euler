@@ -22,9 +22,8 @@ def sieve_of_eratosthenes(n):
 def solution(N):
     primes = sieve_of_eratosthenes(math.isqrt(N) + 1)
 
-    squares = takewhile(N.__gt__, (i*i for i in primes))
-    cubes = takewhile(N.__gt__, (i**3 for i in primes))
-    fourths = takewhile(N.__gt__, (i**4 for i in primes))
+    squares, cubes, fourths = ([*takewhile(N.__gt__, (i**n for i in primes))]
+                               for n in (2, 3, 4))
 
     sums = (s + c + f for s, c, f in product(squares, cubes, fourths))
     return len(set(sum_ for sum_ in sums if sum_ < N))
