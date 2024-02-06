@@ -48,7 +48,7 @@ def solution(N):
     max_m = int((math.sqrt(2*N + 1) - 1) / 2)
     for m in range(2, max_m + 1):
         # add m%2 to 1 to iterate m and n, which are not both odd
-        for n in range(1 + m%2, m, 2):
+        for n in range(1 + m % 2, m, 2):
             # ensure m and n are coprime
             if math.gcd(m, n) != 1:
                 continue
@@ -62,7 +62,7 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(200))     # 120
-    print(solution(1000))    # 840 <--
-    print(solution(10_000))  # 9240
-    print(solution(100_000)) # 55440
+    print(solution(200))      # 120
+    print(solution(1000))     # 840 <--
+    print(solution(10_000))   # 9240
+    print(solution(100_000))  # 55440
