@@ -5,7 +5,7 @@ What is the sum of the digits of the number 2^1000?
 
 link: https://projecteuler.net/problem=16
 """
-import math
+
 
 def cheating_solution(power, base=2):
     return sum(map(int, str(base**power)))
@@ -25,7 +25,9 @@ class LargeNumber:
         carry = 0.0
         result = LargeNumber(0)
         result.number = [0.0] * max(len(self.number), len(other.number))
-        for i, (bucket, other_bucket) in enumerate(zip(self.number, other.number)):
+
+        bucket_pairs = zip(self.number, other.number)
+        for i, (bucket, other_bucket) in enumerate(bucket_pairs):
             addition = other_bucket + bucket + carry
             result.number[i] = float(addition % self.separator)
             carry = float(addition // self.separator)
@@ -79,12 +81,12 @@ def solution(power, base=2):
 
 # test
 if __name__ == '__main__':
-    print(cheating_solution(15)) # 26
-    print(cheating_solution(1000)) # 1366
-    print(cheating_solution(5000)) # 6790
+    print(cheating_solution(15))  # 26
+    print(cheating_solution(1000))  # 1366
+    print(cheating_solution(5000))  # 6790
     # print(cheating_solution(100_000)) # Exceeds the limit
 
-    print(solution(15)) # 26
-    print(solution(1000)) # 1366
-    print(solution(5000)) # 6790
-    print(solution(100_000)) # 136357
+    print(solution(15))  # 26
+    print(solution(1000))  # 1366
+    print(solution(5000))  # 6790
+    print(solution(100_000))  # 136357
