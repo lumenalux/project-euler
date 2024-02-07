@@ -31,4 +31,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 906609
+    print(solution())  # 906609
