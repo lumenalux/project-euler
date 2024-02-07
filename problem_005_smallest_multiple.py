@@ -14,8 +14,8 @@ numbers from 1 to 20. So we can just factor them out,
 then find minimum number of each factor. And then get
 our answer by multiplying them all together.
 """
-
 from collections import Counter
+
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
@@ -29,7 +29,8 @@ def sieve_of_eratosthenes(n):
 
     for i in range(2, int(n**0.5) + 1):
         if sieve[i]:
-            sieve[i*i:n:i] = [False] * len(sieve[i*i:n:i])  # Set multiples of i to False
+            # Set multiples of i to False
+            sieve[i*i:n:i] = [False] * len(sieve[i*i:n:i])
 
     return [i for i, prime in enumerate(sieve) if prime]
 
@@ -48,18 +49,18 @@ def factorize(n):
 
 
 def solution(n):
-  min_factors = {}
-  for factors in [Counter(factorize(i)) for i in range(1, n + 1)]:
-      for factor, count in factors.items():
-          min_factors[factor] = max(min_factors.get(factor, 0), count)
+    min_factors = {}
+    for factors in [Counter(factorize(i)) for i in range(1, n + 1)]:
+        for factor, count in factors.items():
+            min_factors[factor] = max(min_factors.get(factor, 0), count)
 
-  result = 1
-  for factor, count in min_factors.items():
-      result *= factor ** count
-  return result
+    result = 1
+    for factor, count in min_factors.items():
+        result *= factor ** count
+    return result
 
 
 # test
 if __name__ == '__main__':
-    print(solution(10)) # 2520
-    print(solution(20)) # 232792560
+    print(solution(10))  # 2520
+    print(solution(20))  # 232792560
