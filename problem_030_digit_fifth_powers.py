@@ -16,12 +16,12 @@ link: https://projecteuler.net/problem=30
 
 Solution:
 
-Let's find the upper bound for the number. The max digit is 9, so the max sum of
-the fifth powers of digits is 9**5, and if we add n such numbers we would get
-9**5*n. The min n is 0, the max is 9. If we get the 5-digit number, the max sum
-would be 9**5*5 = 295245. If we get the 7-digit number, the max sum would be
-9**5*7 = 413343, but it is less than 7-digit number, so we can't get the 7-digit.
-The upper bound is 9**5*6 = 354294.
+Let's find the upper bound for the number. The max digit is 9, so the max sum
+of the fifth powers of digits is 9**5, and if we add n such numbers we would
+get 9**5*n. The min n is 0, the max is 9. If we get the 5-digit number, the
+max sum would be 9**5*5 = 295245. If we get the 7-digit number, the max sum
+would be 9**5*7 = 413343, but it is less than 7-digit number, so we can't get
+the 7-digit. The upper bound is 9**5*6 = 354294.
 
 If we get the sum of fifth powers of digits of numbers 1234 and 4321, the sums
 would be the same. So we can use the combinations of digits to get the sums,
@@ -47,4 +47,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 443839
+    print(solution())  # 443839
