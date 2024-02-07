@@ -24,6 +24,8 @@ can subtract the first element and add the next one.
 """
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+
 def sieve_of_eratosthenes(n):
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
@@ -32,7 +34,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def solution(N):
@@ -51,6 +54,6 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(100))       # 41
-    print(solution(1000))      # 953
-    print(solution(1_000_000)) # 997651
+    print(solution(100))        # 41
+    print(solution(1000))       # 953
+    print(solution(1_000_000))  # 997651
