@@ -25,6 +25,7 @@ r's for which C(n, r) > 1_000_000 is n - 2*r_min + 1.
 """
 import math
 
+
 def find_r(n):
     low, high = 0, n // 2 + 1
     while low < high:
@@ -42,4 +43,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 4075
+    print(solution())  # 4075
