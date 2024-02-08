@@ -12,26 +12,25 @@ link: https://projecteuler.net/problem=1
 
 # O(n), runs too long for n like 1 000 000
 def solution(n):
-  return sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
+    return sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
 
 
 # O(1), sum formula
 def solution_2(n):
-  def get_sum_of_multiples_of_k(k, n):
-    end = n - (n % k) if n % k != 0 else n - k
-    n_terms = (end - k) // k + 1
-    return (n_terms * (k + end)) // 2
+    def get_sum_of_multiples_of_k(k, n):
+        end = n - (n % k) if n % k != 0 else n - k
+        n_terms = (end - k) // k + 1
+        return (n_terms * (k + end)) // 2
 
-  sum_of_multiples_of_3 = get_sum_of_multiples_of_k(3, n)
-  sum_of_multiples_of_5 = get_sum_of_multiples_of_k(5, n)
-  sum_of_multiples_of_15 = get_sum_of_multiples_of_k(15, n)
-  return sum_of_multiples_of_3 + sum_of_multiples_of_5 - sum_of_multiples_of_15
+    result = get_sum_of_multiples_of_k(3, n)
+    result += get_sum_of_multiples_of_k(5, n)
+    return result - get_sum_of_multiples_of_k(15, n)
 
 
 # test
 if __name__ == '__main__':
-  N = 1000
-  print(solution(N), solution_2(N)) # 233168 233168
+    N = 1000
+    print(solution(N), solution_2(N))  # 233168 233168
 
-  N = 1_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000
-  print(solution_2(N)) # 233333333333333333333333333333333333333333333333333333166666666666666666666666666666666666666666666666666668
+    N = 10 ** 60
+    print(solution_2(N))  # ≈ 23.3 * 10^118
