@@ -17,7 +17,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def factor_number(n):
@@ -34,6 +35,8 @@ def factor_number(n):
 
 # time:  O(√n(log(log(√n))))
 # space: O(√n)
+
+
 def solution(n):
     factors = factor_number(n)
     return factors[-1] if factors else None
@@ -42,4 +45,4 @@ def solution(n):
 # test
 if __name__ == '__main__':
     N = 600851475143
-    print(solution(N)) # 6857
+    print(solution(N))  # 6857
