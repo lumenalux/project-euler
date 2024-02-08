@@ -9,6 +9,7 @@ link: https://projecteuler.net/problem=7
 
 from itertools import compress, cycle, islice, count
 
+
 def eratosthenes_sieve_gen():
     """
     An optimized implementation of the Sieve of
@@ -55,9 +56,11 @@ def eratosthenes_sieve_gen():
             next_composite[candidate * candidate] = candidate
             yield candidate
         else:
-            # Update the dictionary with the next composite number for this prime
+            # Update the dictionary with the next
+            # composite number for this prime
             next_multiple = candidate + 2 * prime
-            while next_multiple in next_composite or (next_multiple % 30) not in modulos:
+            while next_multiple in next_composite \
+                    or (next_multiple % 30) not in modulos:
                 next_multiple += 2 * prime
             next_composite[next_multiple] = prime
 
@@ -71,4 +74,4 @@ def solution(n):
 
 # test
 if __name__ == '__main__':
-    print(solution(10001)) # 104743
+    print(solution(10001))  # 104743
