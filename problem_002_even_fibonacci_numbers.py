@@ -20,6 +20,7 @@ Let's efficiently calculate the f_2n+1 using efficient power of
 matrix and then find the sum of even-valued terms
 """
 
+
 def multiply_2x2_matrices(m1, m2):
     a = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0]
     b = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1]
@@ -41,6 +42,7 @@ def power_2x2_matrix(matrix, n):
 
     return multiply_2x2_matrices(matrix,
                                  power_2x2_matrix(squared_matrix, (n-1) // 2))
+
 
 def get_nth_of_fibonacci(n):
     return n if n < 1 else power_2x2_matrix([[1, 1],
@@ -83,8 +85,8 @@ def linear_solution(N):
 # test
 if __name__ == '__main__':
     N = 4_000_000
-    print(solution(N), linear_solution(N)) # 3524577 3524577
+    print(solution(N), linear_solution(N))  # 3524577 3524577
 
     N = 4 * 10 ** 1000
-    print(solution(N)) # 31068776790948109938947426180404819488893050239575...
-    print(linear_solution(N)) # 3106877679094810993894742618040481948889305...
+    print(solution(N))  # 31068776790948109938947426180404819488893050239575...
+    print(linear_solution(N))  # 3106877679094810993894742618040481948889305...
