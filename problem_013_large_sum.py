@@ -227,15 +227,15 @@ def cheating_solution():
 def solution():
     float_sum = 0.0
     for i in range(len(NUMBERS[0]), 0, -10):
-      j = i - 10
-      float_sum /= 10000000000.0 # 10.0**10.0
-      for number in NUMBERS:
-          float_sum += float(number[j:i])
+        j = i - 10
+        float_sum /= 10000000000.0  # 10.0**10.0
+        for number in NUMBERS:
+            float_sum += float(number[j:i])
 
     return int(str(float_sum)[:10])
 
 
 # test
 if __name__ == '__main__':
-    print(cheating_solution()) # 5537376230
-    print(solution()) # 5537376230
+    print(cheating_solution())  # 5537376230
+    print(solution())           # 5537376230
