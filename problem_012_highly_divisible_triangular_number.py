@@ -58,9 +58,9 @@ Then we can calculate the product of such pair to get the result.
 
 import math
 
-from itertools import count, chain
-from collections import Counter
+from itertools import count
 from functools import lru_cache
+
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
@@ -72,7 +72,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 @lru_cache(maxsize=None)
@@ -92,7 +93,7 @@ def get_number_of_divisors(n):
 
 
 def solution(N):
-   for n in count(2):
+    for n in count(2):
         a, b = (n // 2, n + 1) if n % 2 == 0 else (n, (n + 1) // 2)
         if get_number_of_divisors(a) * get_number_of_divisors(b) > N:
             return a * b
@@ -112,10 +113,10 @@ def dp_solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(5)) # 28
-    print(solution(500)) # 76576500
-    print(solution(1000)) # 842161320
+    print(solution(5))     # 28
+    print(solution(500))   # 76576500
+    print(solution(1000))  # 842161320
 
-    print(dp_solution(5)) # 28
-    print(dp_solution(500)) # 76576500
-    print(dp_solution(1000)) # 842161320
+    print(dp_solution(5))     # 28
+    print(dp_solution(500))   # 76576500
+    print(dp_solution(1000))  # 842161320
