@@ -18,42 +18,42 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 link: https://projecteuler.net/problem=14
 """
-from functools import lru_cache
+
 
 def solution(N):
-  sequence_length = [0] * (N + 1)
-  sequence_length[1] = 1
-  for i in range(2, N):
-    n = i
-    while n > N or sequence_length[n] == 0:
-      n = (3 * n + 1) // 2 if n % 2 else n // 2
-      sequence_length[i] += n % 2 or 2
-    sequence_length[i] += sequence_length[n]
+    sequence_length = [0] * (N + 1)
+    sequence_length[1] = 1
+    for i in range(2, N):
+        n = i
+        while n > N or sequence_length[n] == 0:
+            n = (3 * n + 1) // 2 if n % 2 else n // 2
+            sequence_length[i] += n % 2 or 2
+        sequence_length[i] += sequence_length[n]
 
-  return max(enumerate(sequence_length), key=lambda x: x[1])[0]
+    return max(enumerate(sequence_length), key=lambda x: x[1])[0]
 
 
 def recursive_solution(N):
-  sequence_length = {1: 1}
+    sequence_length = {1: 1}
 
-  def find_sequence_length(n):
-    if n in sequence_length:
-      return sequence_length[n]
+    def find_sequence_length(n):
+        if n in sequence_length:
+            return sequence_length[n]
 
-    if n % 2 == 0:
-      sequence_length[n] = 1 + find_sequence_length(n // 2)
-    else:
-      sequence_length[n] = 2 + find_sequence_length((3*n + 1) // 2)
+        if n % 2 == 0:
+            sequence_length[n] = 1 + find_sequence_length(n // 2)
+        else:
+            sequence_length[n] = 2 + find_sequence_length((3*n + 1) // 2)
 
-    return sequence_length[n]
+        return sequence_length[n]
 
-  for i in range(2, N):
-    find_sequence_length(i)
+    for i in range(2, N):
+        find_sequence_length(i)
 
-  return max(sequence_length.items(), key=lambda x: x[1])[0]
+    return max(sequence_length.items(), key=lambda x: x[1])[0]
 
 
 # test
 if __name__ == '__main__':
-  print(solution(1_000_000)) # 837799
-  print(recursive_solution(1_000_000)) # 837799
+    print(solution(1_000_000))  # 837799
+    print(recursive_solution(1_000_000))  # 837799
