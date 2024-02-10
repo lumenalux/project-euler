@@ -61,7 +61,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def factor_number(n, primes):
@@ -86,15 +87,15 @@ def solution(N):
     divisors_sums = {n: sum_of_divisors(n, primes) - n for n in range(2, N)}
     amicable_numbers = [n for n, d_sum in divisors_sums.items()
                         if n != d_sum
-                           and d_sum in divisors_sums
-                           and n == divisors_sums[divisors_sums[n]]]
+                        and d_sum in divisors_sums
+                        and n == divisors_sums[divisors_sums[n]]]
 
     return sum(amicable_numbers)
 
 
 # test
 if __name__ == '__main__':
-    print(solution(1000)) # 504
-    print(solution(10_000)) # 31626
-    print(solution(100_000)) # 852810
-    print(solution(1_000_000)) # 25275024
+    print(solution(1000))  # 504
+    print(solution(10_000))  # 31626
+    print(solution(100_000))  # 852810
+    print(solution(1_000_000))  # 25275024
