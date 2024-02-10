@@ -44,6 +44,7 @@ NUMBERS = {
     1000: 'thousand'
 }
 
+
 def number_to_words(number):
     if number == 1000:
         return NUMBERS[1] + NUMBERS[number]
@@ -57,7 +58,9 @@ def number_to_words(number):
     if number % 100 == 0:
         return NUMBERS[number // 100] + NUMBERS[100]
 
-    return NUMBERS[number // 100] + NUMBERS[100] + 'and' + number_to_words(number % 100)
+    decades = number_to_words(number % 100)
+    return f"{NUMBERS[number // 100]}{NUMBERS[100]}and{decades}"
+
 
 def solution():
     return sum(len(number_to_words(number)) for number in range(1, 1001))
@@ -65,4 +68,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 21124
+    print(solution())  # 21124
