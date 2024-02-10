@@ -65,5 +65,5 @@ def solution(triangle):
 
 # test
 if __name__ == '__main__':
-    print(solution(SMALL_TRIANGLE)) # 23
-    print(solution(TRIANGLE)) # 1074
+    print(solution(SMALL_TRIANGLE))  # 23
+    print(solution(TRIANGLE))        # 1074
