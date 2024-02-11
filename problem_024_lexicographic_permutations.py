@@ -41,20 +41,21 @@ from itertools import chain, permutations, islice
 
 
 def one_line_solution(N, k=10):
-  return ''.join(map(str, next(islice(permutations(range(k)), N - 1, N))))
+    return ''.join(map(str, next(islice(permutations(range(k)), N - 1, N))))
 
 
 def solution(N, k=10):
-  sequence = list(range(k))
-  n = N - 1
-  for i in range(len(sequence)):
-    d, n = divmod(n, math.factorial(len(sequence) - i - 1))
-    sequence[i:] = chain([sequence[d+i]], sequence[i: d+i], sequence[d+i+1 :])
+    sequence = list(range(k))
+    n = N - 1
+    for i in range(len(sequence)):
+        d, n = divmod(n, math.factorial(len(sequence) - i - 1))
+        sequence[i:] = chain(
+            [sequence[d+i]], sequence[i: d+i], sequence[d+i+1:])
 
-  return ''.join(map(str, (sequence)))
+    return ''.join(map(str, (sequence)))
 
 
 # test
 if __name__ == '__main__':
-  print(one_line_solution(1_000_000)) # 2783915460
-  print(solution(1_000_000)) # 2783915460
+    print(one_line_solution(1_000_000))  # 2783915460
+    print(solution(1_000_000))           # 2783915460
