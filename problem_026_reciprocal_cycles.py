@@ -29,6 +29,7 @@ can not be larger than length of 1/d, where m is an integer. So we need to
 proceed only the prime numbers.
 """
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 def sieve_of_eratosthenes(n):
@@ -39,17 +40,18 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def get_length_of_recurring_cycle(d):
-  remainder_index = {}
-  remainder, index = 1, 0
-  while remainder and remainder not in remainder_index:
-      remainder_index[remainder] = index
-      remainder = (remainder * 10) % d
-      index += 1
-  return index - remainder_index.get(remainder, 0)
+    remainder_index = {}
+    remainder, index = 1, 0
+    while remainder and remainder not in remainder_index:
+        remainder_index[remainder] = index
+        remainder = (remainder * 10) % d
+        index += 1
+    return index - remainder_index.get(remainder, 0)
 
 
 def solution(N):
@@ -58,6 +60,6 @@ def solution(N):
 
 
 if __name__ == "__main__":
-    print(solution(10)) # 7
-    print(solution(1000)) # 983
-    print(solution(10_000)) # 9967
+    print(solution(10))  # 7
+    print(solution(1000))  # 983
+    print(solution(10_000))  # 9967
