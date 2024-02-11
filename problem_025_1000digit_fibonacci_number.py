@@ -60,22 +60,22 @@ def get_number_of_digits_of_nth_fibonacci(n):
 
 # O(log(N)) time | O(1) space
 def solution(N):
-  low, high = 1, 2
-  while get_number_of_digits_of_nth_fibonacci(high) < N:
-    low, high = high, high * 2
+    low, high = 1, 2
+    while get_number_of_digits_of_nth_fibonacci(high) < N:
+        low, high = high, high * 2
 
-  while low < high:
-    mid = (low + high) // 2
-    if get_number_of_digits_of_nth_fibonacci(mid) < N:
-      low = mid + 1
-    else:
-      high = mid
+    while low < high:
+        mid = (low + high) // 2
+        if get_number_of_digits_of_nth_fibonacci(mid) < N:
+            low = mid + 1
+        else:
+            high = mid
 
-  return low
+    return low
 
 
 if __name__ == "__main__":
-  print(solution(3)) # 12
-  print(solution(1000)) # 4782
-  print(solution(1_000_000)) # 4784969
-  print(solution(1_000_000_000)) # 4784971964
+    print(solution(3))              # 12
+    print(solution(1000))           # 4782
+    print(solution(1_000_000))      # 4784969
+    print(solution(1_000_000_000))  # 4784971964
