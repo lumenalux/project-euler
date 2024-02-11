@@ -1,7 +1,8 @@
 """
-A perfect number is a number for which the sum of its proper divisors is exactly
-equal to the number. For example, the sum of the proper divisors of 28 would be
-1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
+A perfect number is a number for which the sum of its proper divisors is
+exactly equal to the number. For example, the sum of the proper divisors
+of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect
+number.
 
 A number n is called deficient if the sum of its proper divisors is less than
 and it is called abundant if this sum exceeds n.
@@ -42,7 +43,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def factor_number(n, primes):
@@ -76,4 +78,4 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(28123)) # 4179871
+    print(solution(28123))  # 4179871
