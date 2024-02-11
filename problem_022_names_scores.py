@@ -12,7 +12,6 @@ What is the total of all the name scores in the file?
 
 link: https://projecteuler.net/problem=22
 """
-from itertools import chain
 
 
 def solution(file_name):
@@ -23,4 +22,4 @@ def solution(file_name):
 
 # test
 if __name__ == '__main__':
-    print(solution('resources/0022_names.txt')) # 871198282
+    print(solution('resources/0022_names.txt'))  # 871198282
