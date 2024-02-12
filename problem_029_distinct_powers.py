@@ -42,8 +42,8 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(straight_solution(5)) # 15
-    print(straight_solution(100)) # 9183
+    print(straight_solution(5))  # 15
+    print(straight_solution(100))  # 9183
 
-    print(solution(5)) # 15
-    print(solution(100)) # 9183
+    print(solution(5))  # 15
+    print(solution(100))  # 9183
