@@ -42,5 +42,5 @@ def solution(N):
 
 
 if __name__ == '__main__':
-    print(solution(200)) # 73682
-    print(recursive_solution(200)) # 73682
+    print(solution(200))  # 73682
+    print(recursive_solution(200))  # 73682
