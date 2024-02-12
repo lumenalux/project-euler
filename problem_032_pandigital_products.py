@@ -34,14 +34,16 @@ are 11 digits in total, so there are more than 9 digits, so the product can't
 be pandigital. So the two numbers together have 5 digits. So we need to check
 the permutations of the numbers 1-9 with 5 digits.
 
-Lastly, to ensure that we summing the products only once, we will use the sieve
-bool array to mark the products that we already get to avoid summing them again.
+Lastly, to ensure that we summing the products only once, we will use the
+sieve bool array to mark the products that we already get to avoid summing
+them again.
 """
 from itertools import permutations, chain
 
 DIGITS = '123456789'
 DIGITS_SET = frozenset(DIGITS)
 R = 5
+
 
 def is_product_pandigital(a, b):
     product_set = set(chain.from_iterable(map(str, (a, b, a * b))))
@@ -61,4 +63,4 @@ def solution():
 
 
 if __name__ == '__main__':
-    print(solution()) # 45228
+    print(solution())  # 45228
