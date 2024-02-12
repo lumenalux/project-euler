@@ -55,12 +55,13 @@ Applying all this, we get a formula for calculating the sum of numbers on
 diagonals in an N by N spiral formed in the same way.
 """
 
+
 def solution(N):
-    return  (N * (N * (4*N + 3) + 8) - 9) // 6
+    return (N * (N * (4*N + 3) + 8) - 9) // 6
 
 
 if __name__ == '__main__':
-  print(solution(1)) # 1
-  print(solution(3)) # 25
-  print(solution(5)) # 101
-  print(solution(1001)) # 669171001
+    print(solution(1))  # 1
+    print(solution(3))  # 25
+    print(solution(5))  # 101
+    print(solution(1001))  # 669171001
