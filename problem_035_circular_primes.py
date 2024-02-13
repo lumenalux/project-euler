@@ -12,6 +12,7 @@ link: https://projecteuler.net/problem=35
 """
 from collections import deque
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 def sieve_of_eratosthenes(n):
@@ -22,7 +23,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def is_circular_prime(number, primes):
@@ -34,7 +36,6 @@ def is_circular_prime(number, primes):
     return True
 
 
-
 def solution(N):
     primes = set(sieve_of_eratosthenes(N))
     return len({prime for prime in primes if is_circular_prime(prime, primes)})
@@ -42,5 +43,5 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(100)) # 13
-    print(solution(1_000_000)) # 55
+    print(solution(100))  # 13
+    print(solution(1_000_000))  # 55
