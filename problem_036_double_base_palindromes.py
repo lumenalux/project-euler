@@ -28,8 +28,8 @@ from itertools import count
 def generate_binary_palindromes():
     for i in count(1):
         binary = bin(i)[2:]
-        yield int(binary + binary[-1::-1], 2) # for even length
-        yield int(binary + binary[-2::-1], 2) # for odd length
+        yield int(binary + binary[-1::-1], 2)  # for even length
+        yield int(binary + binary[-2::-1], 2)  # for odd length
 
 
 def solution(N):
@@ -42,4 +42,4 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(1_000_000)) # 872187
+    print(solution(1_000_000))  # 872187
