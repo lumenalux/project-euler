@@ -40,4 +40,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 100
+    print(solution())  # 100
