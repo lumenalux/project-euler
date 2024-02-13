@@ -31,7 +31,7 @@ def eratosthenes_sieve_gen():
 
         next_multiple = candidate + 2 * prime
         while next_multiple in next_composite \
-              or (next_multiple % 30) not in modulos:
+                or (next_multiple % 30) not in modulos:
             next_multiple += 2 * prime
         next_composite[next_multiple] = prime
 
@@ -40,7 +40,7 @@ def is_truncatable_prime(prime, primes_set):
     prime_str = str(prime)
     for i in range(len(prime_str) - 1, 0, -1):
         if int(prime_str[i:]) not in primes_set:
-           return False
+            return False
         if int(prime_str[:-i]) not in primes_set:
             return False
     return True
@@ -62,4 +62,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 748317
+    print(solution())  # 748317
