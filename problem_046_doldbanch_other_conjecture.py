@@ -61,15 +61,15 @@ def is_sqrt(n):
 def solution():
     composites = [9]
     while True:
-      primes, composites = get_next_primes_composites(composites[-1])
-      for composite in composites:
-          for prime in primes:
-              if composite <= prime - 2:
-                  return composite
-              if is_sqrt((composite - prime) // 2):
-                  break
+        primes, composites = get_next_primes_composites(composites[-1])
+        for composite in composites:
+            for prime in primes:
+                if composite <= prime - 2:
+                    return composite
+                if is_sqrt((composite - prime) // 2):
+                    break
 
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 5777
+    print(solution())  # 5777
