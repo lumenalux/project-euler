@@ -53,7 +53,7 @@ def merge_triples(sequences, triples):
 
 def solution():
     triples = list(permutations('0123456789', 3))
-    valid_triples = [[triple for triple in triples if int(''.join(triple)) % d == 0]
+    valid_triples = [[t for t in triples if int(''.join(t)) % d == 0]
                      for d in DIVISORS[::-1]]
     valid_triples.append(triples)
 
