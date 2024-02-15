@@ -19,6 +19,7 @@ the modulo of the power, which is more efficient than calculating the power
 and then calculating the modulo.
 """
 
+
 def solution(N, k=10):
     modulos = 10**k
     number = sum(pow(i, i, modulos) for i in range(1, N + 1)) % modulos
@@ -28,4 +29,4 @@ def solution(N, k=10):
 # test
 if __name__ == '__main__':
     print(solution(10))   # 0405071317
-    print(solution(1000)) # 9110846700
+    print(solution(1000))  # 9110846700
