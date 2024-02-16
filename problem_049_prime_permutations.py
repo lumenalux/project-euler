@@ -37,7 +37,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def solution():
@@ -57,4 +58,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 296962999629
+    print(solution())  # 296962999629
