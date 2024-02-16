@@ -30,6 +30,8 @@ theoretical nature of Lychrel numbers.
 
 link: https://projecteuler.net/problem=55
 """
+
+
 def solution():
     count = 0
     for n in range(1, 10_000):
@@ -46,4 +48,4 @@ def solution():
 
 # test:
 if __name__ == '__main__':
-    print(solution()) # 249
+    print(solution())  # 249
