@@ -28,6 +28,8 @@ from itertools import product, islice
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+
 def sieve_of_eratosthenes(n):
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
@@ -36,7 +38,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def generate_all_possible_patterns(number):
@@ -78,6 +81,6 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(6)) # 13
-    print(solution(7)) # 56003
-    print(solution(8)) # 121313
+    print(solution(6))  # 13
+    print(solution(7))  # 56003
+    print(solution(8))  # 121313
