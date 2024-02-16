@@ -55,6 +55,7 @@ How many hands does Player 1 win?
 from collections import Counter
 from itertools import pairwise
 
+
 class Card:
     VALUE_MAP = {k: v+2 for v, k in enumerate('23456789TJQKA')}
     SUIT_MAP = {k: v for v, k in enumerate('CDHS')}
@@ -117,10 +118,10 @@ class Hand:
                            if hand.is_two_pairs() else (0, 0),
 
                            next(k for k, v in hand.value_count.items()
-                                  if v == 2) if hand.is_one_pair() else 0,
+                                if v == 2) if hand.is_one_pair() else 0,
 
                            max((k for k, v in hand.value_count.items()
-                                  if v == 1), default=0),
+                                if v == 1), default=0),
                            ) for hand in (self, other))
 
         return hand_a < hand_b
@@ -134,10 +135,10 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(Hand('5H 5C 6S 7S KD') > Hand('2C 3S 8S 8D TD')) # False
-    print(Hand('5D 8C 9S JS AC') > Hand('2C 5C 7D 8S QH')) # True
-    print(Hand('2D 9C AS AH AC') > Hand('3D 6D 7D TD QD')) # False
-    print(Hand('4D 6S 9H QH QC') > Hand('3D 6D 7H QD QS')) # True
-    print(Hand('2H 2D 4C 4D 4S') > Hand('3C 3D 3S 9S 9D')) # True
+    print(Hand('5H 5C 6S 7S KD') > Hand('2C 3S 8S 8D TD'))  # False
+    print(Hand('5D 8C 9S JS AC') > Hand('2C 5C 7D 8S QH'))  # True
+    print(Hand('2D 9C AS AH AC') > Hand('3D 6D 7D TD QD'))  # False
+    print(Hand('4D 6S 9H QH QC') > Hand('3D 6D 7H QD QS'))  # True
+    print(Hand('2H 2D 4C 4D 4S') > Hand('3C 3D 3S 9S 9D'))  # True
 
-    print(solution()) # 376
+    print(solution())  # 376
