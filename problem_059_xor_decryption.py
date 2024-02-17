@@ -40,7 +40,8 @@ produce non-printable or non-standard characters, which are unlikely to be
 part of a meaningful decrypted text. This method significantly narrows down
 the pool of potential keys, making the decryption process more efficient by
 focusing only on those key values that have a high likelihood of producing
-valid plaintext, thereby streamlining the search for the correct encryption key.
+valid plaintext, thereby streamlining the search for the correct encryption
+key.
 
 Additionally, we know that the message is in English, so the most common
 triplets are most likely the most frequent three-letter combinations in
@@ -71,29 +72,29 @@ def is_english(message):
 
 
 def solution(file_path):
-  with open(file_path, 'r') as f:
-      cipher = tuple(map(int, f.read().split(',')))
+    with open(file_path, 'r') as f:
+        cipher = tuple(map(int, f.read().split(',')))
 
-  triples = (cipher[i:i+3] for i in range(0, len(cipher) - 3, 3))
-  common = [common for common, _ in Counter(triples).most_common()]
+    triples = (cipher[i:i+3] for i in range(0, len(cipher) - 3, 3))
+    common = [common for common, _ in Counter(triples).most_common()]
 
-  key_parts = [[], [], []]
-  for k in map(ord, ascii_lowercase):
-      for i in range(3):
-          if all(31 < c[i] ^ k < 127 for c in common):
-              key_parts[i].append(k)
+    key_parts = [[], [], []]
+    for k in map(ord, ascii_lowercase):
+        for i in range(3):
+            if all(31 < c[i] ^ k < 127 for c in common):
+                key_parts[i].append(k)
 
-  for key in product(*key_parts):
-      for triples in common:
-          message = ''.join(chr(k ^ c) for k, c in zip(key, triples))
-          if message not in COMMON_3_LETTER_COMBINATIONS:
-              continue
+    for key in product(*key_parts):
+        for triples in common:
+            message = ''.join(chr(k ^ c) for k, c in zip(key, triples))
+            if message not in COMMON_3_LETTER_COMBINATIONS:
+                continue
 
-          decrypted = ''.join(chr(k ^ c) for k, c in zip(cycle(key), cipher))
-          if is_english(decrypted):
-              return sum(map(ord, decrypted))
+            decrypted = ''.join(chr(k ^ c) for k, c in zip(cycle(key), cipher))
+            if is_english(decrypted):
+                return sum(map(ord, decrypted))
 
 
 # test
 if __name__ == '__main__':
-  print(solution('resources/0059_cipher.txt')) # 129448
+    print(solution('resources/0059_cipher.txt'))  # 129448
