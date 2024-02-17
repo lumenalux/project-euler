@@ -18,4 +18,4 @@ def solution():
 
 # test:
 if __name__ == '__main__':
-    print(solution()) # 972
+    print(solution())  # 972
