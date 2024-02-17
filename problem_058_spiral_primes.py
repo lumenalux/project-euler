@@ -24,8 +24,8 @@ link: https://projecteuler.net/problem=58
 Solution:
 
 We can use the same formula from problem_028_number_spiral_diagonals.py to
-calculate the sum of numbers on diagonals in an N by N spiral formed in the same
-way. We will check if the number is prime or not and get our
+calculate the sum of numbers on diagonals in an N by N spiral formed in the
+same way. We will check if the number is prime or not and get our
 statistic for the ratio of primes along both diagonals.
 """
 import math
@@ -43,7 +43,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 def is_prime(n, primes):
@@ -70,4 +71,4 @@ def solution(ratio):
 
 # test
 if __name__ == '__main__':
-    print(solution(0.1)) # 26241
+    print(solution(0.1))  # 26241
