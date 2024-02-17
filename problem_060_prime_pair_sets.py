@@ -25,8 +25,8 @@ the graph. The maximal cliques are the sets of vertices that are all connected
 to each other and there are no other vertices that can be added to the set
 without breaking the rule. The maximal cliques are the sets of primes that can
 be concatenated to produce other primes. In the end we need just find the sum
-of clique of 5. But the Bron-Kerbosch algorithm is working with undirected graphs,
-so we need to create an undirected graph from our directed graph.
+of clique of 5. But the Bron-Kerbosch algorithm is working with undirected
+graphs, so we need to create an undirected graph from our directed graph.
 """
 import math
 
@@ -44,7 +44,8 @@ def sieve_of_eratosthenes(n):
             start, end, step = i*i // 2, n // 2, i
             sieve[start:end:step] = [False] * ((end - start - 1) // step + 1)
 
-    return [] if n < 3 else [2, *(2*i + 1 for i in range(1, n // 2) if sieve[i])]
+    return [] if n < 3 else [2, *(2*i + 1
+                                  for i in range(1, n // 2) if sieve[i])]
 
 
 # For more details about the algorithm:
@@ -56,7 +57,8 @@ def bron_kerbosch(R, P, X, graph, cliques):
     Parameters:
     - R: The current set of vertices included in the clique.
     - P: Potential vertices that can be added to the clique.
-    - X: Vertices already considered that should not be added to the current clique.
+    - X: Vertices already considered that should not be added
+         to the current clique.
     - graph: The input graph as an adjacency list.
     - cliques: A list to collect the maximal cliques found.
     """
@@ -136,5 +138,5 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(4)) # 792
-    print(solution(5)) # 26033
+    print(solution(4))  # 792
+    print(solution(5))  # 26033
