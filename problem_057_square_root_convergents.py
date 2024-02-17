@@ -72,7 +72,8 @@ def solution():
             count += 1
     return count
 
+
 # test
 if __name__ == '__main__':
-    print(fractions_module_solution()) # 153
-    print(solution()) # 153
+    print(fractions_module_solution())  # 153
+    print(solution())  # 153
