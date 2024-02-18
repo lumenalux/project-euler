@@ -45,11 +45,13 @@ a + 1 / (n / d) = (a * n + d) / n, so:
 So we can find the nth convergent using this recurrence relation. The last
 thing is to find the sum of digits in the numerator of the 100th convergent.
 """
-def get_a(n):
-  if n == 0:
-    return 2
 
-  return 2 * (n + 1) // 3 if n % 3 == 2 else 1
+
+def get_a(n):
+    if n == 0:
+        return 2
+
+    return 2 * (n + 1) // 3 if n % 3 == 2 else 1
 
 
 def solution(N):
@@ -61,5 +63,5 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(10)) # 17
-    print(solution(100)) # 272
+    print(solution(10))  # 17
+    print(solution(100))  # 272
