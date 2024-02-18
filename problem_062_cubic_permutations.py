@@ -18,7 +18,7 @@ def has_exactly_n_permutations(n, cube):
     k_max = round(int(''.join(digits[::-1])) ** (1/3)) + 1
 
     return sum(1 for k in range(k_min, k_max)
-                 if sorted(str(k ** 3)) == digits) == n
+               if sorted(str(k ** 3)) == digits) == n
 
 
 def solution(N):
@@ -36,6 +36,6 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(3)) # 41063625
-    print(solution(4)) # 1006012008
-    print(solution(5)) # 127035954683
+    print(solution(3))  # 41063625
+    print(solution(4))  # 1006012008
+    print(solution(5))  # 127035954683
