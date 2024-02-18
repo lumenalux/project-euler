@@ -63,7 +63,7 @@ canonical form  (S is any natural number that is not a perfect square):
 The algorithm terminates when this triplet is the same as one encountered
 before.
 
-link: https://en.wikipedia.org/wiki/Periodic_continued_fraction#Canonical_form_and_repetend
+link: https://en.wikipedia.org/?curid=10875031#Canonical_form_and_repetend
 
 Using it we will find all the periods of the square roots of the numbers and
 count which ones are odd.
@@ -97,4 +97,4 @@ def solution(N):
 # test
 if __name__ == '__main__':
     print(solution(25))     # 4
-    print(solution(10_000)) # 1322
+    print(solution(10_000))  # 1322
