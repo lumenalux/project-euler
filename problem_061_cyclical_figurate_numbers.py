@@ -82,4 +82,4 @@ def solution():
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 28684
+    print(solution())  # 28684
