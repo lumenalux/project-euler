@@ -1,5 +1,6 @@
 """
-The 5 digit number, 16807=7^5, is also a fifth power. Similarly, the 9 digit number, 134217728=8^9, is a ninth power.
+The 5 digit number, 16807=7^5, is also a fifth power. Similarly, the 9 digit
+number, 134217728=8^9, is a ninth power.
 
 How many n-digit positive integers exist which are also an nth power?
 
@@ -26,18 +27,19 @@ The number of digits n of a number is given by the formula:
     n = ⌊log10(m^n)⌋ + 1
     n = ⌊n*log10(m)⌋ + 1
 
-We don't need to evaluate the actual value of m^n, we can just check the number
-of digits of m^n. If the number of digits is equal to n, then we found a number.
+We don't need to evaluate the actual value of m^n, we can just check
+the number of digits of m^n. If the number of digits is equal to n,
+then we found a number.
 """
 import math
 
 
 def solution():
     return sum(1 for m in range(1, 10)
-                 for n in range(1, 22)
-                 if math.floor(n * math.log10(m)) + 1 == n)
+               for n in range(1, 22)
+               if math.floor(n * math.log10(m)) + 1 == n)
 
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 49
+    print(solution())  # 49
