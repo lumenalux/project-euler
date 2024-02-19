@@ -34,7 +34,8 @@ than our limit N in product.
 """
 import math
 
-from itertools import combinations, chain
+from itertools import combinations
+
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
@@ -49,8 +50,9 @@ def sieve_of_eratosthenes(lower_limit, upper_limit):
     if upper_limit < 3:
         return []
 
-    return [2, *(2*i + 1 for i in range(1, upper_limit // 2)
-                         if sieve[i] and 2*i + 1 > lower_limit)]
+    return [2, *(2*i + 1
+                 for i in range(1, upper_limit // 2)
+                 if sieve[i] and 2*i + 1 > lower_limit)]
 
 
 def solution(N):
@@ -64,9 +66,9 @@ def solution(N):
                    for p, q in combinations(primes, 2) if p * q < N)
 
     return min((n/phi, n) for n, phi in n_phi_pairs
-                          if sorted(str(n)) == sorted(str(phi)))[1]
+               if sorted(str(n)) == sorted(str(phi)))[1]
 
 
 # test
 if __name__ == '__main__':
-    print(solution(10_000_000)) # 8319823
+    print(solution(10_000_000))  # 8319823
