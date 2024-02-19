@@ -34,12 +34,11 @@ After that, we just need to find the maximum value of x for each D.
 """
 import math
 
-from itertools import count
 from operator import itemgetter
 
 
 def chakravala_method(D):
-    a, k, x, y = 1, 1, 1, 0
+    k, x, y = 1, 1, 0
     m = math.isqrt(D)
     D_sqrt = math.sqrt(D)
 
@@ -65,4 +64,4 @@ def solution(N):
 # test
 if __name__ == '__main__':
     print(solution(7))    # 5
-    print(solution(1000)) # 661
+    print(solution(1000))  # 661
