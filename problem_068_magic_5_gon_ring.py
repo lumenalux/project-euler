@@ -93,7 +93,7 @@ Also, the last number of each set is the second number of the next set and
 there are unique first number in each set. With that knowledge, we can chain
 the sets which suits the conditions and find the maximum 16-digit string.
 """
-from itertools import islice, chain
+from itertools import chain
 from collections import Counter
 
 
@@ -102,10 +102,10 @@ def generate_partial_sets():
     for x in range(6, 11):
         for y in range(1, 6):
             if 13 < x + y:
-              continue
+                continue
             for z in range(1, 6):
                 if x + y + z == 14 and y != z:
-                  sets.append((x, y, z))
+                    sets.append((x, y, z))
     return sets
 
 
@@ -126,14 +126,14 @@ def solution():
     solutions = partial_sets[:2]
     for _ in range(4):
         solutions = chain.from_iterable(
-          get_next_sets(s, partial_sets[2:]) for s in solutions
+            get_next_sets(s, partial_sets[2:]) for s in solutions
         )
 
     solutions = (s for s in solutions
-                   if s[1] == s[-1])
+                 if s[1] == s[-1])
 
     return int(''.join(map(str, max(solutions))))
 
 
 if __name__ == '__main__':
-    print(solution()) # 6531031914842725
+    print(solution())  # 6531031914842725
