@@ -36,11 +36,13 @@ are coprime. The fraction is reduced. Let's find the limit of denominator
 and find the numerator. Combining this we will get the inverse formula for the
 numerator and get the answer.
 """
+
+
 def solution(N):
     return 2 + 3*((N - 5) // 7)
 
 
 # test
 if __name__ == '__main__':
-    print(solution(8))         # 2
-    print(solution(1_000_000)) # 428570
+    print(solution(8))          # 2
+    print(solution(1_000_000))  # 428570
