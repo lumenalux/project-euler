@@ -21,6 +21,7 @@ billion years to check them all. There is an efficient algorithm to solve it.
 link: https://projecteuler.net/problem=67
 """
 
+
 def solution(file_path):
     with open(file_path) as file:
         triangle = [[int(number) for number in line.split(' ')]
@@ -29,10 +30,10 @@ def solution(file_path):
     total = [0] * (len(triangle[-1]) + 1)
     for row in triangle[::-1]:
         total = [value + max(total[j], total[j + 1])
-                for j, value in enumerate(row)]
+                 for j, value in enumerate(row)]
     return total[0]
 
 
 # test
 if __name__ == '__main__':
-    print(solution('resources/0067_triangle.txt')) # 7273
+    print(solution('resources/0067_triangle.txt'))  # 7273
