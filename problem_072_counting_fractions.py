@@ -56,7 +56,7 @@ def get_totient_up_to_n(n):
 
     for i in range(2, n):
         if totient[i] != 1:
-          continue
+            continue
 
         for j in range(i, n + 1, i):
             totient[j] *= i - 1
@@ -75,5 +75,5 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(8))         # 21
-    print(solution(1_000_000)) # 303963552391
+    print(solution(8))          # 21
+    print(solution(1_000_000))  # 303963552391
