@@ -21,7 +21,8 @@ matrix and then find the sum of even-valued terms
 """
 
 
-def multiply_2x2_matrices(m1, m2):
+def multiply_2x2_matrices(m1: list[list[int]],
+                          m2: list[list[int]]) -> list[list[int]]:
     a = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0]
     b = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1]
     c = m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0]
@@ -31,7 +32,7 @@ def multiply_2x2_matrices(m1, m2):
             [c, d]]
 
 
-def power_2x2_matrix(matrix, n):
+def power_2x2_matrix(matrix: list[list[int]], n: int) -> list[list[int]]:
     if n <= 1:
         return matrix
 
@@ -44,7 +45,7 @@ def power_2x2_matrix(matrix, n):
                                  power_2x2_matrix(squared_matrix, (n-1) // 2))
 
 
-def get_nth_of_fibonacci(n):
+def get_nth_of_fibonacci(n: int) -> int:
     return n if n < 1 else power_2x2_matrix([[1, 1],
                                              [1, 0]], n - 1)[0][0]
 
@@ -54,7 +55,7 @@ def get_nth_of_fibonacci(n):
 #                    find the nth fibonacci by O(log(n))
 # O(log(n)) - find the sum of even-valued terms
 # O(log(n)*log(n)) + O(log(n)) = O(log(n)*log(n)) - total
-def solution(N):
+def solution(N: int) -> int:
     # find the largest _2n such that f_2n < N
     low, high = 0, 1
     while get_nth_of_fibonacci(high) <= N:
@@ -71,7 +72,7 @@ def solution(N):
 
 
 # O(n)
-def linear_solution(N):
+def linear_solution(N: int) -> int:
     previous, current, n = 0, 1, 1
     sum_even = 0
     while current <= N:
