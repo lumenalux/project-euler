@@ -11,13 +11,13 @@ link: https://projecteuler.net/problem=1
 
 
 # O(n), runs too long for n like 1 000 000
-def solution(n):
+def solution(n: int) -> int:
     return sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
 
 
 # O(1), sum formula
-def solution_2(n):
-    def get_sum_of_multiples_of_k(k, n):
+def solution_2(n: int) -> int:
+    def get_sum_of_multiples_of_k(k: int, n: int) -> int:
         end = n - (n % k) if n % k != 0 else n - k
         n_terms = (end - k) // k + 1
         return (n_terms * (k + end)) // 2
