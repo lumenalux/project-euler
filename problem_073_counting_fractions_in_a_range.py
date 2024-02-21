@@ -42,6 +42,7 @@ Finally, summing these counts across all denominators up to 12,000 gives the
 desired number of reduced proper fractions within the specified range.
 """
 
+
 def solution(N):
     number_of_new_fractions = [0] * (N + 1)
     for d in range(1, N + 1):
@@ -54,5 +55,5 @@ def solution(N):
 
 # test
 if __name__ == '__main__':
-    print(solution(8))      # 3
-    print(solution(12_000)) # 7295372
+    print(solution(8))       # 3
+    print(solution(12_000))  # 7295372
