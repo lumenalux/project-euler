@@ -104,5 +104,5 @@ def solution(N):
 
 
 if __name__ == '__main__':
-    print(solution(  1_000_000)) # 402
-    print(solution(100_000_000)) # 62058
+    print(solution(1_000_000))  # 402
+    print(solution(100_000_000))  # 62058
