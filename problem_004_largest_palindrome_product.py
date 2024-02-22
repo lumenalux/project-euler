@@ -16,7 +16,7 @@ We can reduce the search space by a factor of 11.
 """
 
 
-def is_palindrome(n):
+def is_palindrome(n: int) -> bool:
     return str(n) == str(n)[::-1]
 
 
