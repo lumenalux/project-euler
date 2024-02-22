@@ -65,7 +65,7 @@ def eratosthenes_sieve_gen():
             next_composite[next_multiple] = prime
 
 
-def solution(n):
+def solution(n: int) -> int:
     prime_sieve_generator = eratosthenes_sieve_gen()
     for _ in range(n - 1):
         next(prime_sieve_generator)
