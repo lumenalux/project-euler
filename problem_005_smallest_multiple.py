@@ -15,11 +15,10 @@ then find minimum number of each factor. And then get
 our answer by multiplying them all together.
 """
 from collections import Counter
+from typing import List
 
 
-# For more details about the algorithm:
-# https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> List[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     if n <= 2:
         return []
@@ -35,7 +34,7 @@ def sieve_of_eratosthenes(n):
     return [i for i, prime in enumerate(sieve) if prime]
 
 
-def factorize(n):
+def factorize(n: int) -> List[int]:
     factors = []
     prime_candidates = sieve_of_eratosthenes(int(n**0.5) + 1)
     for prime in prime_candidates:
@@ -48,7 +47,7 @@ def factorize(n):
     return factors
 
 
-def solution(n):
+def solution(n: int) -> int:
     min_factors = {}
     for factors in [Counter(factorize(i)) for i in range(1, n + 1)]:
         for factor, count in factors.items():
