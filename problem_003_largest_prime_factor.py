@@ -9,7 +9,7 @@ link: https://projecteuler.net/problem=3
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -21,7 +21,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def factor_number(n):
+def factor_number(n: int) -> list[int]:
     factors = []
     prime_candidates = sieve_of_eratosthenes(int(n**0.5) + 1)
     for prime in prime_candidates:
@@ -37,12 +37,11 @@ def factor_number(n):
 # space: O(√n)
 
 
-def solution(n):
+def solution(n: int) -> int:
     factors = factor_number(n)
     return factors[-1] if factors else None
 
 
 # test
 if __name__ == '__main__':
-    N = 600851475143
-    print(solution(N))  # 6857
+    print(solution(600851475143))  # 6857
