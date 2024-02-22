@@ -32,12 +32,12 @@ Solution:
 
 
 # O(1)
-def solution(n):
+def solution(n: int) -> int:
     return n * (n+1) * (3*n*(n+1) - 4*n - 2) // 12
 
 
 # O(n)
-def brute_force_solution(n):
+def brute_force_solution(n: int) -> int:
     return sum(range(1, n+1))**2 - sum(i**2 for i in range(1, n+1))
 
 
