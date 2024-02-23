@@ -6,11 +6,10 @@ Find the sum of all the primes below two million.
 link: https://projecteuler.net/problem=10
 """
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-
-
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -23,7 +22,7 @@ def sieve_of_eratosthenes(n):
 
 
 # O(n*log(log(n))) - Sieve of Eratosthenes
-def solution(n):
+def solution(n: int) -> int:
     return sum(sieve_of_eratosthenes(n))
 
 
