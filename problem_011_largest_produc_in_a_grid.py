@@ -60,23 +60,23 @@ GRID = [
 
 
 # O(kmn)
-def solution(k):
-    def left_top_diagonal(i, j):
+def solution(k: int) -> int:
+    def left_top_diagonal(i: int, j: int) -> int:
         if i > len(GRID) - k or j > len(GRID[0]) - k:
             return -math.inf
         return math.prod(GRID[i + k][j + k] for k in range(k))
 
-    def right_top_diagonal(i, j):
+    def right_top_diagonal(i: int, j: int) -> int:
         if i > len(GRID) - k or j < k:
             return -math.inf
         return math.prod(GRID[i + k][j - k] for k in range(k))
 
-    def horizontal(i, j):
+    def horizontal(i: int, j: int) -> int:
         if j > len(GRID) - k:
             return -math.inf
         return math.prod(GRID[i][j + k] for k in range(k))
 
-    def vertical(i, j):
+    def vertical(i: int, j: int) -> int:
         if i > len(GRID) - k:
             return -math.inf
         return math.prod(GRID[i + k][j] for k in range(k))
