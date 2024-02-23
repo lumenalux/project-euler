@@ -64,7 +64,7 @@ from functools import lru_cache
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -77,7 +77,7 @@ def sieve_of_eratosthenes(n):
 
 
 @lru_cache(maxsize=None)
-def get_number_of_divisors(n):
+def get_number_of_divisors(n: int) -> int:
     prime_candidates = sieve_of_eratosthenes(int(n**0.5) + 1)
     factors_count = [1] * len(prime_candidates)
     for i, prime in enumerate(prime_candidates):
@@ -92,7 +92,7 @@ def get_number_of_divisors(n):
     return (2 if n > 2 else 1) * math.prod(factors_count)
 
 
-def solution(N):
+def solution(N: int) -> int:
     for n in count(2):
         a, b = (n // 2, n + 1) if n % 2 == 0 else (n, (n + 1) // 2)
         if get_number_of_divisors(a) * get_number_of_divisors(b) > N:
@@ -100,7 +100,7 @@ def solution(N):
 
 
 # Works faster
-def dp_solution(N):
+def dp_solution(N: int) -> int:
     # Heruistic formula (N // 2)^2 // 2 for upper bound of n
     number_of_divisors = [1] * (max((N // 2)**2 // 2, 100))
     for n in count(2):
