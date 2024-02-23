@@ -56,7 +56,7 @@ _1000_DIGIT_NUMBER = int(
 )
 
 
-def solution(n, number):
+def solution(n: int, number: int) -> int:
     digits_chunks = [[int(digit) for digit in chunk]
                      for chunk in str(number).split('0') if len(chunk) >= n]
 
