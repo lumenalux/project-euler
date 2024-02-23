@@ -20,7 +20,7 @@ link: https://projecteuler.net/problem=14
 """
 
 
-def solution(N):
+def solution(N: int) -> int:
     sequence_length = [0] * (N + 1)
     sequence_length[1] = 1
     for i in range(2, N):
@@ -33,10 +33,10 @@ def solution(N):
     return max(enumerate(sequence_length), key=lambda x: x[1])[0]
 
 
-def recursive_solution(N):
+def recursive_solution(N: int) -> int:
     sequence_length = {1: 1}
 
-    def find_sequence_length(n):
+    def find_sequence_length(n: int) -> int:
         if n in sequence_length:
             return sequence_length[n]
 
