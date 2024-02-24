@@ -7,21 +7,21 @@ link: https://projecteuler.net/problem=16
 """
 
 
-def cheating_solution(power, base=2):
+def cheating_solution(power: int, base: int = 2) -> int:
     return sum(map(int, str(base**power)))
 
 
 class LargeNumber:
-    DIGITS_IN_BUCKET = 6
+    DIGITS_IN_BUCKET: int = 6
 
-    def __init__(self, number):
-        self.separator = 10 ** self.DIGITS_IN_BUCKET
-        self.number = []
+    def __init__(self, number: int):
+        self.separator: int = 10 ** self.DIGITS_IN_BUCKET
+        self.number: list[float] = []
         while number > 0:
             self.number.append(float(number % self.separator))
             number //= self.separator
 
-    def __add__(self, other):
+    def __add__(self, other: 'LargeNumber') -> 'LargeNumber':
         carry = 0.0
         result = LargeNumber(0)
         result.number = [0.0] * max(len(self.number), len(other.number))
@@ -36,8 +36,8 @@ class LargeNumber:
 
         return result
 
-    def __mul__(self, other):
-        result = LargeNumber(0)
+    def __mul__(self, other: 'LargeNumber') -> 'LargeNumber':
+        result: 'LargeNumber' = LargeNumber(0)
         for i, bucket in enumerate(self.number):
             carry = 0.0
             for j, other_bucket in enumerate(other.number):
@@ -54,7 +54,7 @@ class LargeNumber:
 
         return result
 
-    def __pow__(self, number):
+    def __pow__(self, number: int) -> 'LargeNumber':
         result = LargeNumber(1)
         if number == 0:
             return result
@@ -68,14 +68,14 @@ class LargeNumber:
 
         return self * (squared ** ((number - 1) // 2))
 
-    def __str__(self):
+    def __str__(self) -> str:
         str_number = [str(int(bucket)).zfill(self.DIGITS_IN_BUCKET)
                       for bucket in self.number[::-1]]
 
         return ''.join(str_number).lstrip('0')
 
 
-def solution(power, base=2):
+def solution(power: int, base: int = 2) -> int:
     return sum(map(int, str(LargeNumber(base) ** power)))
 
 
