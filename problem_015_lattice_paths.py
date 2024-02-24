@@ -11,7 +11,7 @@ import math
 
 
 # O(n^2) time | O(n^2) space
-def dp_solution(N):
+def dp_solution(N: int) -> int:
     grid = [[1] * (N + 1)] + [[1] + [0] * N for _ in range(N)]
     for i in range(1, N + 1):
         for j in range(1, N + 1):
@@ -20,7 +20,7 @@ def dp_solution(N):
 
 
 # O(n) time | O(1) space
-def solution(N):
+def solution(N: int) -> int:
     return math.comb(2 * N, N)
 
 
