@@ -52,7 +52,7 @@ TRIANGLE = """75
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
 
 
-def solution(triangle):
+def solution(triangle: str) -> int:
     triangle = [[int(number) for number in row.split(' ')]
                 for row in triangle.split('\n')]
 
