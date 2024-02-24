@@ -45,7 +45,7 @@ NUMBERS = {
 }
 
 
-def number_to_words(number):
+def number_to_words(number: int) -> str:
     if number == 1000:
         return NUMBERS[1] + NUMBERS[number]
 
