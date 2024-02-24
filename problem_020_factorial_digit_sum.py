@@ -26,13 +26,13 @@ calculate the odd product in O(n) time.
 import math
 
 
-def generate_factorial_steps(n):
+def generate_factorial_steps(n: int) -> int:
     if n > 1:
         yield from generate_factorial_steps(n - 1 if n % 2 else n // 2)
         yield n
 
 
-def fast_factorial(n):
+def fast_factorial(n: int) -> int:
     result = 1
     last_odd = 1
     odd_product = 1
@@ -51,7 +51,7 @@ def fast_factorial(n):
     return result
 
 
-def solution(n):
+def solution(n: int) -> int:
     return sum(map(int, str(fast_factorial(n))))
 
 
