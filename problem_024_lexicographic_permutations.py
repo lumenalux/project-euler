@@ -40,11 +40,11 @@ import math
 from itertools import chain, permutations, islice
 
 
-def one_line_solution(N, k=10):
+def one_line_solution(N: int, k: int = 10) -> str:
     return ''.join(map(str, next(islice(permutations(range(k)), N - 1, N))))
 
 
-def solution(N, k=10):
+def solution(N: int, k: int = 10):
     sequence = list(range(k))
     n = N - 1
     for i in range(len(sequence)):
