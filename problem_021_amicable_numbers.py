@@ -53,7 +53,7 @@ from collections import Counter
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -65,7 +65,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def factor_number(n, primes):
+def factor_number(n: int, primes: list[int]) -> list[int]:
     factors = []
     for prime in islice(primes, 0, int(n**0.5) + 1):
         while n % prime == 0:
@@ -77,12 +77,12 @@ def factor_number(n, primes):
     return factors
 
 
-def sum_of_divisors(n, primes):
+def sum_of_divisors(n: int, primes: list[int]) -> int:
     return math.prod((p**(a + 1) - 1) // (p - 1)
                      for p, a in Counter(factor_number(n, primes)).items())
 
 
-def solution(N):
+def solution(N: int) -> int:
     primes = sieve_of_eratosthenes(int(N**0.5) + 1)
     divisors_sums = {n: sum_of_divisors(n, primes) - n for n in range(2, N)}
     amicable_numbers = [n for n, d_sum in divisors_sums.items()
