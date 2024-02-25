@@ -54,12 +54,12 @@ LOG10_SQRT_5 = 0.5 * math.log10(5)
 LOG10_PHI = math.log10((1 + math.sqrt(5)) / 2)
 
 
-def get_number_of_digits_of_nth_fibonacci(n):
+def get_number_of_digits_of_nth_fibonacci(n: int) -> int:
     return math.floor(n * LOG10_PHI - LOG10_SQRT_5) + 1
 
 
 # O(log(N)) time | O(1) space
-def solution(N):
+def solution(N: int) -> int:
     low, high = 1, 2
     while get_number_of_digits_of_nth_fibonacci(high) < N:
         low, high = high, high * 2
