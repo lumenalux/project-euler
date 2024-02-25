@@ -14,7 +14,7 @@ link: https://projecteuler.net/problem=22
 """
 
 
-def solution(file_name):
+def solution(file_name: str) -> int:
     with open(file_name) as f:
         return sum((i + 1) * sum(ord(c) - 64 for c in name.strip('"'))
                    for i, name in enumerate(sorted(f.read().split(','))))
