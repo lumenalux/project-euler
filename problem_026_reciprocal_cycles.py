@@ -32,7 +32,7 @@ proceed only the prime numbers.
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -44,7 +44,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def get_length_of_recurring_cycle(d):
+def get_length_of_recurring_cycle(d: int) -> int:
     remainder_index = {}
     remainder, index = 1, 0
     while remainder and remainder not in remainder_index:
@@ -54,12 +54,12 @@ def get_length_of_recurring_cycle(d):
     return index - remainder_index.get(remainder, 0)
 
 
-def solution(N):
+def solution(N: int) -> int:
     primes = sieve_of_eratosthenes(N)
     return max(primes, key=get_length_of_recurring_cycle)
 
 
 if __name__ == "__main__":
-    print(solution(10))  # 7
-    print(solution(1000))  # 983
+    print(solution(10))      # 7
+    print(solution(1000))    # 983
     print(solution(10_000))  # 9967
