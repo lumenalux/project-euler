@@ -32,18 +32,18 @@ so with the higher N, we can get the error in the result
 from math import log2
 
 
-def straight_solution(N):
+def straight_solution(N: int) -> int:
     return len({a**b for a in (range(2, N+1)) for b in range(2, N+1)})
 
 
-def solution(N):
+def solution(N: int) -> int:
     return len({b*log2(a) for a in (range(2, N+1)) for b in range(2, N+1)})
 
 
 # test
 if __name__ == '__main__':
-    print(straight_solution(5))  # 15
+    print(straight_solution(5))    # 15
     print(straight_solution(100))  # 9183
 
-    print(solution(5))  # 15
+    print(solution(5))    # 15
     print(solution(100))  # 9183
