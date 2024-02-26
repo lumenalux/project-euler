@@ -48,7 +48,7 @@ Such sequence definitely not the maximum sequence, so we can skip it.
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -60,7 +60,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def solution_(N):
+def solution(N: int) -> int:
     primes_set = set(sieve_of_eratosthenes(N**2))
     primes = sieve_of_eratosthenes(N)
     max_n, max_a, max_b = 0, 0, 0
@@ -81,4 +81,4 @@ def solution_(N):
 
 
 if __name__ == "__main__":
-    print(solution_(1000))  # -59231
+    print(solution(1000))  # -59231
