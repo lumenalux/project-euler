@@ -27,12 +27,12 @@ COINS = (1, 2, 5, 10, 20, 50, 100, 200)
 
 
 @lru_cache(maxsize=max(COINS))
-def recursive_solution(N, start=0):
+def recursive_solution(N: int, start: int = 0) -> int:
     return sum(recursive_solution(N - COINS[i], i)
                for i in range(start, len(COINS)) if COINS[i] <= N) if N else 1
 
 
-def solution(N):
+def solution(N: int) -> int:
     dp = [0] * (N + 1)
     dp[0] = 1
     for coin in COINS:
@@ -42,5 +42,5 @@ def solution(N):
 
 
 if __name__ == '__main__':
-    print(solution(200))  # 73682
+    print(solution(200))            # 73682
     print(recursive_solution(200))  # 73682
