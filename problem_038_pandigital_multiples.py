@@ -39,7 +39,7 @@ from itertools import permutations
 DIGITS_SET = frozenset('123456789')
 
 
-def get_pandigital_product_number(number):
+def get_pandigital_product_number(number: int) -> int:
     product_number = str(number)
     i = 1
     while i < 9 and len(product_number) < 9:
@@ -54,10 +54,10 @@ def get_pandigital_product_number(number):
 
 def solution():
     return max(get_pandigital_product_number(int(''.join(permutation)))
-              for r in range(1, 5)
-              for permutation in permutations('123456789', r))
+               for r in range(1, 5)
+               for permutation in permutations('123456789', r))
 
 
 # test
 if __name__ == '__main__':
-    print(solution()) # 932718654
+    print(solution())  # 932718654
