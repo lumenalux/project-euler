@@ -15,7 +15,7 @@ from collections import deque
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -27,7 +27,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def is_circular_prime(number, primes):
+def is_circular_prime(number: int, primes: set[int]) -> bool:
     number = deque(str(number))
     for _ in range(len(number)):
         number.rotate()
@@ -36,7 +36,7 @@ def is_circular_prime(number, primes):
     return True
 
 
-def solution(N):
+def solution(N: int) -> int:
     primes = set(sieve_of_eratosthenes(N))
     return len({prime for prime in primes if is_circular_prime(prime, primes)})
 
