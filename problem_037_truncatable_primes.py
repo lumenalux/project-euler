@@ -14,7 +14,7 @@ link: https://projecteuler.net/problem=37
 from itertools import compress, cycle, islice, count
 
 
-def eratosthenes_sieve_gen():
+def eratosthenes_sieve_gen() -> int:
     next_composite = {9: 3, 25: 5}
 
     yield from (2, 3, 5)
@@ -36,7 +36,7 @@ def eratosthenes_sieve_gen():
         next_composite[next_multiple] = prime
 
 
-def is_truncatable_prime(prime, primes_set):
+def is_truncatable_prime(prime: int, primes_set: set[int]) -> bool:
     prime_str = str(prime)
     for i in range(len(prime_str) - 1, 0, -1):
         if int(prime_str[i:]) not in primes_set:
