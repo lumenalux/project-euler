@@ -45,7 +45,7 @@ DIGITS_SET = frozenset(DIGITS)
 R = 5
 
 
-def is_product_pandigital(a, b):
+def is_product_pandigital(a: int, b: int) -> bool:
     product_set = set(chain.from_iterable(map(str, (a, b, a * b))))
     return len(str(a * b)) == 4 and product_set == DIGITS_SET
 
