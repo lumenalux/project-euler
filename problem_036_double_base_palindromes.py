@@ -32,7 +32,7 @@ def generate_binary_palindromes():
         yield int(binary + binary[-2::-1], 2)  # for odd length
 
 
-def solution(N):
+def solution(N: int) -> int:
     result = 0
     binary_palindromes_generator = generate_binary_palindromes()
     while (palindrome := next(binary_palindromes_generator)) < N:
