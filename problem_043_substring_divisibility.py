@@ -38,7 +38,7 @@ from itertools import permutations, product
 DIVISORS = (2, 3, 5, 7, 11, 13, 17)
 
 
-def merge_triples(sequences, triples):
+def merge_triples(sequences: list[str], triples: list[str]) -> list[str]:
     new_sequences = []
     for sequence, triple in product(sequences, triples):
         if sequence[:2] != triple[-2:]:
