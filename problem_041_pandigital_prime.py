@@ -25,7 +25,7 @@ from itertools import islice, permutations
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -37,7 +37,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def is_prime(n, primes):
+def is_prime(n: int, primes: list[int]) -> bool:
     return all(n % prime for prime in islice(primes, 0, math.isqrt(n) + 1))
 
 
