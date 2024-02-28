@@ -38,7 +38,7 @@ the following expression:
 import math
 
 
-def get_nth_digit(n):
+def get_nth_digit(n: int) -> int:
     m = n
     k = 1
     while (length_of_all_k_digit_numbers := 9 * 10 ** (k - 1) * k) < m:
@@ -48,7 +48,7 @@ def get_nth_digit(n):
     return int(str(10**(k-1) + (m-1) // k)[(m-1) % k])
 
 
-def solution(nth_digits):
+def solution(nth_digits: list[int]) -> int:
     return math.prod(map(get_nth_digit, nth_digits))
 
 
