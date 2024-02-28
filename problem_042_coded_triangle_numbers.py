@@ -28,12 +28,12 @@ the words and count the number of triangle words.
 import math
 
 
-def is_triangle(number):
+def is_triangle(number: int) -> bool:
     n = round((math.sqrt(8 * number + 1) - 1) / 2)
     return 2 * number == round(n) * (round(n) + 1)
 
 
-def solution(file_name):
+def solution(file_name: str) -> int:
     with open(file_name) as f:
         return sum(is_triangle(sum(ord(c) - 64 for c in word.strip('"')))
                    for word in f.read().split(','))
