@@ -28,11 +28,10 @@ import math
 from itertools import count
 from collections import deque
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-
-
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -44,7 +43,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def count_distinct_primes_divisors(n, primes):
+def count_distinct_primes_divisors(n: int, primes: list[int]) -> int:
     count = 0
     upper_limit = math.isqrt(n) + 1
     for prime in primes:
@@ -60,7 +59,10 @@ def count_distinct_primes_divisors(n, primes):
     return count
 
 
-def get_valid_sequence(number, N, primes):
+def get_valid_sequence(number: int,
+                       N: int,
+                       primes: list[int]
+                       ) -> tuple[int] | None:
     first_sequence = ((i, count_distinct_primes_divisors(i, primes))
                       for i in range(number - N + 1, number))
     sequence = deque(first_sequence, maxlen=N)
@@ -71,7 +73,7 @@ def get_valid_sequence(number, N, primes):
     return None
 
 
-def solution(N):
+def solution(N: int) -> int:
     primes_limit_squared = 1000
     primes = sieve_of_eratosthenes(math.isqrt(primes_limit_squared) + 1)
     for number in count(N, step=N - 1):
