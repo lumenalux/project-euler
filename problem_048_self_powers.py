@@ -20,7 +20,7 @@ and then calculating the modulo.
 """
 
 
-def solution(N, k=10):
+def solution(N: int, k: int = 10) -> str:
     modulos = 10**k
     number = sum(pow(i, i, modulos) for i in range(1, N + 1)) % modulos
     return str(number).zfill(10)
