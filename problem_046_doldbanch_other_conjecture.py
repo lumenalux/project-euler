@@ -34,7 +34,7 @@ import math
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[bool]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -45,7 +45,8 @@ def sieve_of_eratosthenes(n):
     return sieve
 
 
-def get_next_primes_composites(last_composite):
+def get_next_primes_composites(last_composite: int
+                               ) -> tuple[list[int], list[int]]:
     sieve = sieve_of_eratosthenes(last_composite * 2)
     primes = [2, *(2*i + 1 for i in range(1, last_composite) if sieve[i])]
     composites = [2*i + 1
@@ -54,7 +55,7 @@ def get_next_primes_composites(last_composite):
     return primes, composites
 
 
-def is_sqrt(n):
+def is_sqrt(n: int) -> bool:
     return math.isqrt(n)**2 == n
 
 
