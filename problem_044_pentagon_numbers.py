@@ -39,7 +39,7 @@ import math
 from itertools import count
 
 
-def is_pentagonal(n):
+def is_pentagonal(n: int) -> int:
     return math.sqrt(24*n + 1) % 6 == 5
 
 
