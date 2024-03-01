@@ -26,7 +26,7 @@ r's for which C(n, r) > 1_000_000 is n - 2*r_min + 1.
 import math
 
 
-def find_r(n):
+def find_r(n: int) -> int:
     low, high = 0, n // 2 + 1
     while low < high:
         mid = (low + high) // 2
