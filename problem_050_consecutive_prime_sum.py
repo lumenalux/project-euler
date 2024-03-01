@@ -22,11 +22,11 @@ is prime. If it is, we will stop the algorithm and return the result. If not,
 we will reduce the window by one and check again. To reduce the window, we
 can subtract the first element and add the next one.
 """
+
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-
-
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -38,7 +38,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def solution(N):
+def solution(N: int) -> int:
     primes = sieve_of_eratosthenes(N)
     primes_sum = sum(primes)
     for window in range(len(primes), 1, -1):
