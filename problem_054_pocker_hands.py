@@ -60,16 +60,16 @@ class Card:
     VALUE_MAP = {k: v+2 for v, k in enumerate('23456789TJQKA')}
     SUIT_MAP = {k: v for v, k in enumerate('CDHS')}
 
-    def __init__(self, card_string):
+    def __init__(self, card_string: str):
         self.value = self.VALUE_MAP[card_string[0]]
         self.suite = self.SUIT_MAP[card_string[1]]
 
-    def __lt__(self, other):
+    def __lt__(self, other: 'Card'):
         return self.value < other.value
 
 
 class Hand:
-    def __init__(self, hand_string):
+    def __init__(self, hand_string: str):
         self.cards = tuple(sorted(map(Card, hand_string.split())))
         self.value_count = Counter(card.value for card in self.cards)
 
