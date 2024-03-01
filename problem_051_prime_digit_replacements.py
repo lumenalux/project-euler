@@ -26,11 +26,10 @@ digits from 0 to 9 and first number which is prime will be the result.
 """
 from itertools import product, islice
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-
-
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -42,7 +41,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def generate_all_possible_patterns(number):
+def generate_all_possible_patterns(number: int) -> str:
     number = list(str(number))
     indexes = {}
     for index, digit in enumerate(number):
@@ -56,7 +55,7 @@ def generate_all_possible_patterns(number):
             yield ''.join(pattern)
 
 
-def solution(N):
+def solution(N: int) -> int | None:
     primes = sieve_of_eratosthenes(1_000_000)
     count = {}
     suitable_pattern = None
