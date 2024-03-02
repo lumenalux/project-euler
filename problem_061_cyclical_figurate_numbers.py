@@ -41,11 +41,11 @@ prefix, so that prefix = suffix.
 import math
 
 
-def get_n(a, b, x):
+def get_n(a: int, b: int, x: int) -> int:
     return math.floor((math.sqrt(b*b + 8*a*x) - b) / (2*a))
 
 
-def get_number_generator(k):
+def get_number_generator(k: int) -> tuple[int, int]:
     a, b = k - 2, 4 - k
     n_first = get_n(a, b, 1000) + 1
     n_last = get_n(a, b, 10000)
@@ -53,7 +53,9 @@ def get_number_generator(k):
     return ((n * (a*n + b) // 2, n) for n in range(n_first, n_last))
 
 
-def next_subsequences(prefix_table, subsequences):
+def next_subsequences(prefix_table: dict[str, list[tuple[int, int, int]]],
+                      subsequences: list[tuple[list[int], set[int], set[int]]]
+                      ) -> list[tuple[list[int], set[int], set[int]]]:
     for subsequence, n_set, k_set in subsequences:
         suffix = str(subsequence[-1])[2:]
         for x, k, n in prefix_table.get(suffix, []):
