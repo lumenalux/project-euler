@@ -11,7 +11,7 @@ link: https://projecteuler.net/problem=62
 from itertools import count
 
 
-def has_exactly_n_permutations(n, cube):
+def has_exactly_n_permutations(n: int, cube: int) -> bool:
     digits = sorted(str(cube))
 
     k_min = round(int(int(''.join(digits))) ** (1/3)) - 1
@@ -21,7 +21,7 @@ def has_exactly_n_permutations(n, cube):
                if sorted(str(k ** 3)) == digits) == n
 
 
-def solution(N):
+def solution(N: int) -> int:
     cube_with_digits = {}
     for n in count(1):
         cube = n ** 3
