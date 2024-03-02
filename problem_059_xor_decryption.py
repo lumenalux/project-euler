@@ -65,13 +65,13 @@ COMMON_3_LETTER_COMBINATIONS = {'the', 'and', 'tha', 'ent', 'ing', 'ion'}
 CONFIDENCE_THRESHOLD = 0.8
 
 
-def is_english(message):
+def is_english(message: str) -> bool:
     words = message.split()
     exact_words_count = sum(bool(re.fullmatch(r'^\w+$', w)) for w in words)
     return exact_words_count / len(words) > CONFIDENCE_THRESHOLD
 
 
-def solution(file_path):
+def solution(file_path: str) -> int:
     with open(file_path, 'r') as f:
         cipher = tuple(map(int, f.read().split(',')))
 
