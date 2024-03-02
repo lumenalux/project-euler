@@ -36,7 +36,7 @@ from itertools import combinations, repeat
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -50,7 +50,11 @@ def sieve_of_eratosthenes(n):
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm
-def bron_kerbosch(R, P, X, graph, cliques):
+def bron_kerbosch(R: set[int],
+                  P: set[int],
+                  X: set[int],
+                  graph: dict[int, set[int]],
+                  cliques: list[set[int]]) -> None:
     """
     Perform the Bron-Kerbosch recursive algorithm to find maximal cliques.
 
@@ -76,7 +80,7 @@ def bron_kerbosch(R, P, X, graph, cliques):
         X.add(vertex)
 
 
-def is_prime(n, primes, prime_limit):
+def is_prime(n: int, primes: dict[int, int], prime_limit: int) -> bool:
     if n < prime_limit:
         return n in primes
 
@@ -89,7 +93,9 @@ def is_prime(n, primes, prime_limit):
     return True
 
 
-def check_match(pair, primes, prime_limit):
+def check_match(pair: tuple[int, int],
+                primes: dict[int, int],
+                prime_limit: int) -> tuple[int, int] | None:
     a, b = pair
     if not is_prime(int(str(a) + str(b)), primes, prime_limit):
         return None
@@ -100,7 +106,8 @@ def check_match(pair, primes, prime_limit):
     return pair
 
 
-def generate_matches(primes, prime_limit):
+def generate_matches(primes: dict[int, int],
+                     prime_limit: int) -> dict[int, set[int]]:
     pool = Pool()
     results = pool.starmap(
         check_match,
@@ -118,7 +125,7 @@ def generate_matches(primes, prime_limit):
     return matches
 
 
-def solution(N):
+def solution(N: int) -> int:
     prime_limit = 10 ** max(3, N - 1)
     primes = sieve_of_eratosthenes(prime_limit)
 
