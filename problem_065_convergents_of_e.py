@@ -47,14 +47,14 @@ thing is to find the sum of digits in the numerator of the 100th convergent.
 """
 
 
-def get_a(n):
+def get_a(n: int) -> int:
     if n == 0:
         return 2
 
     return 2 * (n + 1) // 3 if n % 3 == 2 else 1
 
 
-def solution(N):
+def solution(N: int) -> int:
     n, d = 1, get_a(N - 1)
     for k in range(N - 2, -1, -1):
         n, d = d, get_a(k)*d + n
