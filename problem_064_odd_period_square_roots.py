@@ -73,7 +73,7 @@ import math
 from itertools import count
 
 
-def get_length_of_period(S):
+def get_length_of_period(S: int) -> int:
     if math.isqrt(S) ** 2 == S:
         return 0
 
@@ -90,7 +90,7 @@ def get_length_of_period(S):
         seen.add((a, m, d))
 
 
-def solution(N):
+def solution(N: int) -> int:
     return sum(1 for n in range(2, N + 1) if get_length_of_period(n) % 2)
 
 
