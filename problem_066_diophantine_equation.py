@@ -37,7 +37,7 @@ import math
 from operator import itemgetter
 
 
-def chakravala_method(D):
+def chakravala_method(D: int) -> int:
     k, x, y = 1, 1, 0
     m = math.isqrt(D)
     D_sqrt = math.sqrt(D)
@@ -56,7 +56,7 @@ def chakravala_method(D):
     return x
 
 
-def solution(N):
+def solution(N: int) -> int:
     D = [d for d in range(2, N+1) if math.isqrt(d) ** 2 != d]
     return max(zip(map(chakravala_method, D), D), key=itemgetter(0))[1]
 
