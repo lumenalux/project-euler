@@ -22,7 +22,7 @@ link: https://projecteuler.net/problem=67
 """
 
 
-def solution(file_path):
+def solution(file_path: str) -> int:
     with open(file_path) as file:
         triangle = [[int(number) for number in line.split(' ')]
                     for line in file]
