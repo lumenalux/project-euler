@@ -109,7 +109,8 @@ def generate_partial_sets():
     return sets
 
 
-def get_next_sets(solution_set, partial_sets):
+def get_next_sets(solution_set: list[int],
+                  partial_sets: list[tuple[int, ...]]):
     outer = set(solution_set[::3])
     inner = Counter(solution_set[1::3]) + Counter(solution_set[2::3])
 
