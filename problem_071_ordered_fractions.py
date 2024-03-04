@@ -38,7 +38,7 @@ numerator and get the answer.
 """
 
 
-def solution(N):
+def solution(N: int) -> int:
     return 2 + 3*((N - 5) // 7)
 
 
