@@ -51,7 +51,7 @@ need to subtract 2 to get the result. So the final formula will be:
 import math
 
 
-def get_totient_up_to_n(n):
+def get_totient_up_to_n(n: int) -> list[int]:
     totient = [1] * (n + 1)
 
     for i in range(2, n):
@@ -69,7 +69,7 @@ def get_totient_up_to_n(n):
     return totient[1:]
 
 
-def solution(N):
+def solution(N: int) -> int:
     return sum(get_totient_up_to_n(N)) - 1
 
 
