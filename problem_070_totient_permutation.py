@@ -39,7 +39,7 @@ from itertools import combinations
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(lower_limit, upper_limit):
+def sieve_of_eratosthenes(lower_limit: int, upper_limit: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((upper_limit + 1) // 2)
     for i in range(3, int(upper_limit**0.5) + 1, 2):
@@ -55,7 +55,7 @@ def sieve_of_eratosthenes(lower_limit, upper_limit):
                  if sieve[i] and 2*i + 1 > lower_limit)]
 
 
-def solution(N):
+def solution(N: int) -> int:
     ratio = 0.5
 
     upper_limit = int((1 + ratio) * math.sqrt(N))
