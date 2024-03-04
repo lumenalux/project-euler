@@ -43,7 +43,7 @@ desired number of reduced proper fractions within the specified range.
 """
 
 
-def solution(N):
+def solution(N: int) -> int:
     number_of_new_fractions = [0] * (N + 1)
     for d in range(1, N + 1):
         number_of_new_fractions[d] += d // 2 - d // 3 - 1
