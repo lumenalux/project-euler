@@ -35,7 +35,7 @@ divisible by one million, we return that number as the solution.
 from itertools import count, chain
 
 
-def solution(mod=1_000_000):
+def solution(mod: int = 1_000_000) -> int:
     dp, sign = [1], (1, 1, -1, -1)
     gk = tuple(chain.from_iterable((k*(3*k - 1) // 2, k*(3*k + 1) // 2)
                                    for k in range(1, 200)))
