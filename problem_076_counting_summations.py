@@ -21,7 +21,7 @@ least two positive integers. So we need to subtract 1 from the result.
 """
 
 
-def solution(N):
+def solution(N: int) -> int:
     dp = [0] * (N + 1)
     dp[0] = 1
     for i in range(1, N + 1):
