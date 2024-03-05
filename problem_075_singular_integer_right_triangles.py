@@ -58,7 +58,7 @@ and n combinations such that each perimeter is achieved exactly once.
 import math
 
 
-def solution(N):
+def solution(N: int) -> int:
     perimeter_count = [0] * (N + 1)
     max_m = int((math.sqrt(2*N + 1) - 1) / 2)
     for m in range(2, max_m + 1):
