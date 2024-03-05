@@ -50,11 +50,10 @@ from itertools import dropwhile
 
 LIMIT = 1000
 
+
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-
-
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, int(n**0.5) + 1, 2):
@@ -66,7 +65,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def solution(N):
+def solution(N: int) -> int:
     dp = [0] * LIMIT
     dp[0] = 1
     for prime in sieve_of_eratosthenes(LIMIT):
