@@ -60,15 +60,15 @@ from collections import Counter
 FACTORIALS = list(map(math.factorial, range(10)))
 
 
-def factorial_sum(digits):
+def factorial_sum(digits: str) -> int:
     return sum(FACTORIALS[int(digit)] for digit in digits)
 
 
-def distinct_permutations(K):
+def distinct_permutations(K: list[int]) -> int:
     return math.factorial(sum(K)) // math.prod(map(math.factorial, K))
 
 
-def count_distinct_numbers(digits):
+def count_distinct_numbers(digits: tuple[int, ...]) -> int:
     count = Counter(digits)
     t_length = distinct_permutations(count.values())
     if 0 in count:
@@ -76,7 +76,7 @@ def count_distinct_numbers(digits):
     return t_length
 
 
-def generate_chains(factorials):
+def generate_chains(factorials: dict[int, tuple[int, ...]]) -> list[int]:
     seen = set()
     for number in factorials:
         if number in seen:
@@ -91,7 +91,7 @@ def generate_chains(factorials):
         seen.update(chain)
 
 
-def solution(N):
+def solution(N: int) -> int:
     factorials = dict()
     for r in range(1, len(str(N))):
         for comb in combinations_with_replacement(range(10), r):
