@@ -25,7 +25,7 @@ possible secret passcode.
 """
 
 
-def solution(file_path):
+def solution(file_path: str) -> str:
     with open(file_path) as f:
         data = f.read().splitlines()
 
