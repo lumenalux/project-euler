@@ -18,7 +18,7 @@ link: https://projecteuler.net/problem=81
 from itertools import accumulate
 
 
-def solution(file_path):
+def solution(file_path: str) -> int:
     with open(file_path) as f:
         matrix = [list(map(int, line.split(','))) for line in f]
 
