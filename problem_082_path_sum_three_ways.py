@@ -19,7 +19,7 @@ link: https://projecteuler.net/problem=82
 import math
 
 
-def solution(matrix):
+def solution(matrix: list[list[int]]) -> int:
     rows, columns = len(matrix), len(matrix[0])
     dp = [[math.inf] * columns for _ in range(rows)]
 
@@ -39,7 +39,7 @@ def solution(matrix):
     return min(dp[i][-1] for i in range(rows))
 
 
-def load_matrix(file_path):
+def load_matrix(file_path: str) -> list[list[int]]:
     with open(file_path) as f:
         return [list(map(int, line.split(','))) for line in f]
 
