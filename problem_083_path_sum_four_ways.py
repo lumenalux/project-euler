@@ -21,7 +21,7 @@ import heapq
 import math
 
 
-def solution(matrix):
+def solution(matrix: list[list[int]]) -> int:
     rows = len(matrix)
     columns = len(matrix[0])
 
@@ -52,7 +52,7 @@ def solution(matrix):
     return distance[-1][-1]
 
 
-def file_to_matrix(file_path):
+def file_to_matrix(file_path: str) -> list[list[int]]:
     with open(file_path) as f:
         return [list(map(int, line.split(','))) for line in f]
 
