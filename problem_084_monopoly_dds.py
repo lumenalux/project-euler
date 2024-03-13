@@ -162,7 +162,7 @@ class MonopolySimulation:
             random.randint(1, self.dice_sides)
         )
 
-    def move_position(self, roll):
+    def move_position(self, roll: tuple[int, int]):
         self.position = (self.position + sum(roll)) % self.board_size
 
     def handle_special_squares(self):
@@ -184,7 +184,7 @@ class MonopolySimulation:
         if self.position == self.g2j:
             self.position = self.jail
 
-    def handle_card_actions(self, card):
+    def handle_card_actions(self, card: str):
         if card == 'next_r':
             next_r = [5, 15, 25, 35]
             self.position = next((r for r in next_r if r > self.position), 5)
@@ -209,7 +209,7 @@ class MonopolySimulation:
         self.move_position(roll)
         self.handle_special_squares()
 
-    def run_simulation(self):
+    def run_simulation(self) -> str:
         random.seed(self.seed)
         for _ in range(self.num_turns):
             self.simulate_turn()
@@ -221,7 +221,7 @@ class MonopolySimulation:
         return ''.join([str(square).zfill(2) for square in most_popular])
 
 
-def solution(dice_sides, num_turns=1_000_000):
+def solution(dice_sides, num_turns: int = 1_000_000) -> str:
     simulation = MonopolySimulation(
         dice_sides=dice_sides,
         num_turns=num_turns
