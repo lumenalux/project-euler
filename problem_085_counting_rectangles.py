@@ -9,11 +9,11 @@ link: https://projecteuler.net/problem=85
 """
 
 
-def count_rectangles(n, k):
+def count_rectangles(n: int, k: int) -> int:
     return (n*k * (n+1) * (k+1)) // 4
 
 
-def solution(N):
+def solution(N: int) -> int:
     min_n = int((2*N) ** 0.25)
     max_n = 4 * min_n
     return min(
