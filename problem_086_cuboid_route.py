@@ -23,7 +23,7 @@ import math
 from itertools import count
 
 
-def solution(N):
+def solution(N: int) -> int:
     total_sum = 0
     for a in count(2):  # S = √(a^2 + (b + c)^2)
         total_sum += sum(min(sum_bc, a + 1) - (sum_bc + 1) // 2
