@@ -7,7 +7,7 @@ from itertools import takewhile, product
 
 # For more details about the algorithm:
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-def sieve_of_eratosthenes(n):
+def sieve_of_eratosthenes(n: int) -> list[int]:
     """Sieve of Eratosthenes algorithm to find all primes less than n."""
     sieve = [True] * ((n + 1) // 2)
     for i in range(3, math.isqrt(n) + 1, 2):
@@ -19,7 +19,7 @@ def sieve_of_eratosthenes(n):
                                   for i in range(1, n // 2) if sieve[i])]
 
 
-def solution(N):
+def solution(N: int) -> int:
     primes = sieve_of_eratosthenes(math.isqrt(N) + 1)
 
     squares, cubes, fourths = ([*takewhile(N.__gt__, (i**n for i in primes))]
