@@ -43,11 +43,11 @@ from itertools import combinations_with_replacement
 from collections import Counter
 
 
-def distinct_permutations(K):
+def distinct_permutations(K: list[int]) -> int:
     return math.factorial(sum(K)) // math.prod(map(math.factorial, K))
 
 
-def get_t_sequence_length(digits):
+def get_t_sequence_length(digits: list[int]) -> int:
     count = Counter(digits)
     t_length = distinct_permutations(count.values())
     if 0 in count:
@@ -55,17 +55,17 @@ def get_t_sequence_length(digits):
     return t_length
 
 
-def sum_of_t(digits):
+def sum_of_t(digits: str) -> int:
     n = get_t_sequence_length(digits)
     return n * (n - 1) // 2
 
 
-def S(N):
+def S(N: int) -> int:
     return sum(sum_of_t(digits)
                for digits in combinations_with_replacement(range(10), r=N))
 
 
-def solution(N):
+def solution(N: int) -> int:
     return S(N)
 
 
