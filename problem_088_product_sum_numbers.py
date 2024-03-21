@@ -25,8 +25,6 @@ In fact, as the complete set of minimal product-sum numbers for 2 ≤ k ≤ 12 i
 {4, 6, 8, 12, 15, 16}, the sum is 61.
 
 What is the sum of all the minimal product-sum numbers for 2 ≤ k ≤ 12000?
-
-Link: https://projecteuler.net/problem=88
 """
 
 
