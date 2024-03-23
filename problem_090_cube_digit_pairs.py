@@ -44,4 +44,3 @@ def solution():
 # Test
 if __name__ == "__main__":
     print(solution())  # 1217
-
