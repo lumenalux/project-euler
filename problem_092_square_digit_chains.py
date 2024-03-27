@@ -39,4 +39,4 @@ def solution(N: int) -> int:
 
 
 if __name__ == '__main__':
-    print(solution(10_000_000)) # 8581146
+    print(solution(10_000_000))  # 8581146
